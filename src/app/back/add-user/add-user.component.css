@@ -1,0 +1,85 @@
+.spinner-border {
+  width: 1.25rem; /* Ajustez la taille du spinner selon vos besoins */
+  height: 1.25rem; /* Ajustez la taille du spinner selon vos besoins */
+  margin-right: 100px; /* Ajoutez de la marge à droite du spinner pour l'espacement */
+}
+
+.btn-primary:disabled {
+  opacity: 0.7; /* Réduisez l'opacité du bouton désactivé */
+  cursor: not-allowed; /* Changez le curseur pour indiquer qu'il n'est pas cliquable */
+}
+
+.btn-primary .loader {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.btn-primary span {
+  vertical-align: middle;
+}
+
+:root {
+  --color-danger: #f25c05;
+  --color-success: #057077;
+}
+
+.table-responsive {
+  border: 1px solid var(--color-success);
+  border-radius: 10px;
+  background-color: #f8f9fa; /* Couleur de fond de la table */
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.btn {
+  border-radius: 5px;
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.btn-primary {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.form-container {
+  border: 2px solid var(--color-success);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f8f9fa; /* Couleur de fond du formulaire */
+  margin: 20px auto; /* Centrage horizontal */
+  max-width: 600px;
+}
+
+.form-control {
+  border-color: var(--color-success);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(5, 112, 119, 0.25);
+  border-color: var(--color-success);
+}
+
+.form-group label {
+  font-weight: bold;
+  color: var(--color-success);
+}
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-danger {
+  color: var(--color-danger); /* Utilisez la variable CSS pour définir la couleur rouge */
+}
+
+
+

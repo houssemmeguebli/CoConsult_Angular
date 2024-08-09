@@ -1,0 +1,129 @@
+<br><br><br><br><br>
+<div class="card border-0 shadow">
+  <div class="card-body">
+
+<div class="table-responsive">
+  <h2 style="color:#f25c05;">Job offers</h2>
+<br>
+  <div>
+  <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search job offers..." (input)="searchJobOffers()" style="width: 250px">
+    <div *ngIf="noJobOffersFound" class="alert alert-warning mt-3">
+      No job offers found with this name.
+    </div>
+  </div>
+  <br>
+
+  <table class="table table-striped" id="jobOffersTable" *ngIf="!noJobOffersFound">
+
+    <thead >
+    <tr >
+      <th style="background-color:  #057077 ;color: white" >Job Name</th>
+      <th style="background-color:  #057077 ;color: white" >Job Description</th>
+      <th style="background-color: #057077; color: white; cursor: pointer;" (click)="sortJobOffersByExpirationDate()">
+        Job Expiration Date
+        <span *ngIf="sortBy === 'expirationDate' && sortOrder === 'asc'"   class="bi bi-arrow-up">&#8593;</span>
+        <span *ngIf="sortBy === 'expirationDate' && sortOrder === 'desc'"  class="bi bi-arrow-down">&#8595;</span>
+      </th>
+      <th style="background-color:  #057077;color: white">Position Number</th>
+      <th style="background-color:  #057077;color: white"  class="jobOffersTableActions">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let j of getPageJobOffers()" >
+
+      <td>{{ j.jobName }}</td>
+      <td>{{ j.jobDescription }}</td>
+      <td [ngStyle]="{'color': isDatePassed(j.jobExpirationDate) ? 'red' : 'inherit'}" style="text-align: center">
+        {{ j.jobExpirationDate | date:'MM-dd-yyyy' }}
+      </td>      <td style="text-align: center">{{ j.positionNumber }}</td>
+      <td class="jobOffersTableActions">
+        <button class="btn btn-primary btn-sm me-2 " [routerLink]="['/back/jobApplications/', j.idJobOffer]">
+          <i class="fas fa-eye"></i>
+        </button>
+
+        <button class="btn btn-danger btn-sm me-2" (click)="Delete(j.idJobOffer)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <button class="btn btn-primary btn-sm" [routerLink]="['/back/jobOffers/update', j.idJobOffer]">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination d-flex justify-content-end">
+    <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
+      <span class="pagination-icon">&laquo;</span>
+    </button>
+    <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      <span class="pagination-icon">&raquo;</span>
+    </button>
+  </div>
+
+<br>
+  <button class="btn btn-primary me-2" (click)="toggleForm()"> Add Job Offer
+    <i class="fas fa-plus"></i>
+   </button>
+  <button class="btn btn-primary "  (click)="generatePDF()" >  Export PDF
+    <i class="fas fa-file-pdf"></i>
+    </button>
+
+</div>
+
+
+<br>
+<br>
+
+<div *ngIf="showForm" class="form-container" style="max-width: 600px; margin: auto;">
+  <form [formGroup]="jobOfferForm" (ngSubmit)="Add()" class="mt-4">
+    <div class="form-group">
+      <label for="jobName" class="form-label">Job Name:</label>
+      <input type="text" class="form-control" id="jobName" formControlName="jobName" placeholder="Enter job name" required minlength="3" maxlength="50">
+      <div *ngIf="jobOfferForm.get('jobName')?.touched && jobOfferForm.get('jobName')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('jobName')?.hasError('required')">Job name is required.</div>
+        <div *ngIf="jobOfferForm.get('jobName')?.hasError('minlength') || jobOfferForm.get('jobName')?.hasError('maxlength')">Job name must be between 3 and 50 characters.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="jobDescription" class="form-label">Job Description:</label>
+      <textarea class="form-control" id="jobDescription" formControlName="jobDescription" placeholder="Enter job description" required minlength="10" maxlength="500"></textarea>
+      <div *ngIf="jobOfferForm.get('jobDescription')?.touched && jobOfferForm.get('jobDescription')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('jobDescription')?.hasError('required')">Job description is required.</div>
+        <div *ngIf="jobOfferForm.get('jobDescription')?.hasError('minlength') || jobOfferForm.get('jobDescription')?.hasError('maxlength')">Job description must be between 10 and 500 characters.</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="jobExpirationDate" class="form-label">Job Expiration Date:</label>
+      <input type="date" class="form-control" id="jobExpirationDate" formControlName="jobExpirationDate" [min]="getCurrentDate()">
+      <div *ngIf="jobOfferForm.get('jobExpirationDate')?.touched && jobOfferForm.get('jobExpirationDate')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('jobExpirationDate')?.hasError('required')">Expiration date is required.</div>
+        <div *ngIf="jobOfferForm.get('jobExpirationDate')?.hasError('min')">Expiration date cannot be in the past.</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="positionNumber" class="form-label">Position Number:</label>
+      <input type="number" class="form-control" id="positionNumber" formControlName="positionNumber" placeholder="Enter position number" required pattern="^[0-9]+$">
+      <div *ngIf="jobOfferForm.get('positionNumber')?.touched && jobOfferForm.get('positionNumber')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('positionNumber')?.hasError('required')">Position number is required.</div>
+        <div *ngIf="jobOfferForm.get('positionNumber')?.hasError('pattern')">Position number must contain only digits.</div>
+        <div *ngIf="jobOfferForm.get('positionNumber')?.hasError('min')">Position number must has 1 place at least </div>
+
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary" >ADD</button>
+    </div>
+  </form>
+</div>
+  </div>
+</div>

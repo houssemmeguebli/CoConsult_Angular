@@ -1,0 +1,27 @@
+.contract-details-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa; /* Ajout de la couleur de fond */
+}
+
+.center {
+  text-align: center;
+}
+
+.contract-details {
+  margin-top: 20px;
+}
+
+.contract-details p {
+  margin-bottom: 10px;
+  color: black; /* Définir la couleur du texte en noir */
+}
+
+.date,
+.project-name,
+.email {
+  font-weight: bold;
+}

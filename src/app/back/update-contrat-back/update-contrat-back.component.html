@@ -1,0 +1,55 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <h2>Update Contrat</h2>
+  <form [formGroup]="contratForm" (ngSubmit)="updateContrat()">
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input id="description" type="text" formControlName="description" class="form-control" placeholder="Enter description">
+      <div *ngIf="contratForm.get('description')?.invalid && contratForm.get('description')?.touched" class="error">
+        <p *ngIf="contratForm.get('description')?.hasError('required')">Description is required</p>
+        <p *ngIf="contratForm.get('description')?.hasError('minlength')">Description must be at least 6 characters</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input id="startDate" type="date" formControlName="startDate" class="form-control">
+      <div *ngIf="contratForm.get('startDate')?.invalid && contratForm.get('startDate')?.touched" class="error">
+        <p *ngIf="contratForm.get('startDate')?.hasError('required')">Start date is required</p>
+        <p *ngIf="contratForm.get('startDate')?.hasError('invalidStartDate')">Invalid start date</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input id="endDate" type="date" formControlName="endDate" class="form-control">
+      <div *ngIf="contratForm.get('endDate')?.invalid && contratForm.get('endDate')?.touched" class="error">
+        <p *ngIf="contratForm.get('endDate')?.hasError('required')">End date is required</p>
+        <p *ngIf="contratForm.get('endDate')?.hasError('invalidEndDate')">Invalid end date</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="projectName">Project Name:</label>
+      <input id="projectName" type="text" formControlName="projectName" class="form-control" placeholder="Enter project name">
+      <div *ngIf="contratForm.get('projectName')?.invalid && contratForm.get('projectName')?.touched" class="error">
+        <p *ngIf="contratForm.get('projectName')?.hasError('required')">Project name is required</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" class="form-control" placeholder="Enter email">
+      <div *ngIf="contratForm.get('email')?.invalid && contratForm.get('email')?.touched" class="error">
+        <p *ngIf="contratForm.get('email')?.hasError('required')">Email is required</p>
+        <p *ngIf="contratForm.get('email')?.hasError('email')">Invalid email format</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="etat">Etat:</label>
+      <input id="etat" type="text" formControlName="etat" class="form-control" placeholder="Enter etat">
+      <div *ngIf="contratForm.get('etat')?.invalid && contratForm.get('etat')?.touched" class="error">
+        <p *ngIf="contratForm.get('etat')?.hasError('required')">Etat is required</p>
+      </div>
+    </div>
+    <button type="submit" [disabled]="contratForm.invalid" class="btn btn-primary">Update Contrat</button>
+  </form>
+</div>

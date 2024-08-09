@@ -1,0 +1,22 @@
+<br><br>
+<div class="task-progress-container">
+  <input type="text" [(ngModel)]="selectedConsultant" placeholder="Entrez le nom du consultant">
+  <button (click)="getTasksByConsultant()">Search</button>
+
+  <div *ngIf="consultantTasks.length > 0">
+    <p>Assigned task for  {{ selectedConsultant }}</p>
+    <ul class="task-list">
+      <li *ngFor="let task of consultantTasks" class="task-item">
+        {{ task.jobName }}
+        <input type="checkbox" [(ngModel)]="task.completed">
+      </li>
+    </ul>
+    <button (click)="submitCompletedTasks()">submit Completed Tasks</button>
+
+  </div>
+
+<br><br>
+  <div *ngIf="consultantTasks.length === 0 && selectedConsultant" class="no-tasks-message">
+    Aucune tâche trouvée pour {{ selectedConsultant }}
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.btn-primary:hover {
+  background-color: transparent;
+  color: #057077; /* needs to stay here because of the color property of a tag */
+  text-decoration: none;
+}
+
+
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

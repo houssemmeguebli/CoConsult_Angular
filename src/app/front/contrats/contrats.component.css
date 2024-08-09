@@ -1,0 +1,129 @@
+.container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-container input[type=text] {
+  width: 50%; /* Ajustez la largeur selon vos besoins */
+  padding: 10px;
+  margin: 10px auto; /* Pour centrer horizontalement */
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.table-container {
+  width: 90%; /* Ajustez la largeur selon vos besoins */
+  margin: 0 auto; /* Pour centrer horizontalement */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.table button {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-update {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-view {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+.export-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-export {
+  background-color: #ffc107; /* Couleur de fond */
+  color: #212529; /* Couleur du texte */
+  border: 2px solid #ffc107; /* Bordure */
+  padding: 10px 20px; /* Espacement interne */
+  font-size: 16px; /* Taille de police */
+  font-weight: bold; /* Gras */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de la souris */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transition fluide */
+}
+
+.btn-export:hover {
+  background-color: #ffca28; /* Couleur de fond au survol */
+  color: #212529; /* Couleur du texte au survol */
+  border-color: #ffca28; /* Bordure au survol */
+}
+
+.archive-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-archive {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-archive:hover {
+  background-color: #0056b3;
+}
+

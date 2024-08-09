@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .table-responsive {
+    flex: 1;
+    margin-right: 20px; /* Ajustez la marge selon vos besoins */
+  }
+  
+  .pie-chart-container {
+    flex: 1;
+    margin-left: 20px; /* Ajustez la marge selon vos besoins */
+  }
+  .calendar-container {
+    max-width: 600px; /* Ajustez selon vos besoins */
+    margin: 0 auto; /* Pour centrer le calendrier horizontalement */
+  }
+  .calendar {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .days > div {
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .highlight-day {
+    background-color: #438f95; /* Example highlight color */
+  }
+  
+  

@@ -1,0 +1,55 @@
+/* Table header */
+.table thead th {
+  background-color: #057077;
+  color: white;
+  font-size: 18px;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Table rows */
+.table tbody td {
+  font-size: 16px;
+  padding: 15px;
+}
+
+/* Odd rows */
+.table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Buttons */
+.btn {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.btn-outline-primary {
+  color: #057077;
+  border-color: #057077;
+}
+
+.btn-outline-primary:hover {
+  background-color: #057077;
+  color: white;
+}
+
+.btn-outline-warning {
+  color: #f9a825;
+  border-color: #f9a825;
+}
+
+.btn-outline-warning:hover {
+  background-color: #f9a825;
+  color: white;
+}
+
+.btn-outline-danger {
+  color: #e53935;
+  border-color: #e53935;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e53935;
+  color: white;
+}

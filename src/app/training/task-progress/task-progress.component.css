@@ -1,0 +1,44 @@
+/* task-progress.component.css */
+
+/* Conteneur principal */
+.task-progress-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Champ de recherche */
+.task-progress-container input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Bouton de recherche */
+.task-progress-container button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Liste des tâches */
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Tâche individuelle */
+.task-item {
+  margin-bottom: 10px;
+}
+
+/* Message si aucune tâche trouvée */
+.no-tasks-message {
+  margin-top: 10px;
+  color: #dc3545;
+}

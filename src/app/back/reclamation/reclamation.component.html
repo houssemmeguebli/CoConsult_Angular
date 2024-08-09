@@ -1,0 +1,27 @@
+
+<br><br><br><br><br><br>
+
+
+<div class="card border-0 shadow">
+  <div class="card-body">
+
+    <h2>Nouvelle Réclamation</h2>
+    <form (ngSubmit)="addReclamation()">
+      <div class="form-group">
+        <label for="subject">Sujet :</label>
+        <input type="text" class="form-control" id="subject" [(ngModel)]="newReclamation.subject" name="subject" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea class="form-control" id="description" [(ngModel)]="newReclamation.description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="newReclamation.email" name="email" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+  

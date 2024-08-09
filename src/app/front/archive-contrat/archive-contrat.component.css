@@ -1,0 +1,58 @@
+/* CSS professionnel pour la page d'archive des contrats */
+
+/* Style général */
+.container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Style de la table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+/* Style pour les cellules de texte en gras */
+.table td.bold {
+  font-weight: bold;
+}
+
+/* Style pour le texte en rouge */
+.text-red {
+  color: red;
+}
+
+/* Style pour le texte en vert */
+.text-green {
+  color: green;
+}

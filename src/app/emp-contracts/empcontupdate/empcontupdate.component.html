@@ -1,0 +1,28 @@
+<form [formGroup]="empContForm" class="futuristic-form">
+  <h1 class="display-4 text-center mb-5" style="color: #057077;">Update contract</h1>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for="type">Type:</label>
+    <select formControlName="type" class="form-control futuristic-input" required>
+      <option *ngFor="let type of contractTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="startDate">Start date:</label>
+    <!-- Use Angular's Datepicker or Input[type="date"] for date inputs -->
+    <input type="date" formControlName="startDate" class="form-control futuristic-input" required>
+  </div>
+  <div class="form-group">
+    <label for="endDate">End date:</label>
+    <!-- Use Angular's Datepicker or Input[type="date"] for date inputs -->
+    <input type="date" formControlName="endDate" class="form-control futuristic-input" required>
+  </div>
+  <div class="form-group">
+    <label for="nameEmp">Employee's name:</label>
+    <select formControlName="nameEmp" class="form-control futuristic-input" required>
+      <option *ngFor="let nameEmp of employeeNames" [value]="nameEmp">{{ nameEmp }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary futuristic-btn" (click)="update()" routerLink="/back/empContracts">Submit</button>
+</form>

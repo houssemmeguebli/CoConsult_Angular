@@ -1,0 +1,188 @@
+<aside>
+    <div class="toggle">
+        <div class="logo">
+            <img src="/assets/front/images/coconsult.png">
+            <h2>Co<span class="danger">Consult</span></h2>
+        </div>
+        <div class="close" id="close-btn">
+            <span class="material-icons-sharp">
+                close
+            </span>
+        </div>
+    </div>
+<br>
+
+    <div class="sidebar"  style="height: 80vh; overflow-y: auto;">
+        <a routerLink="/back">
+            <span class="material-icons-sharp">
+                dashboard
+            </span>
+            <h3>Dashboard</h3>
+        </a>
+        <a *ngIf="isAdmin || isHR" routerLink="/back/leaves">
+          <span class="material-icons-sharp">calendar_today</span>
+            <h3>Leaves</h3>
+          </a>
+          <a *ngIf="isAdmin" routerLink="/back/adminReclamation">
+            <span class="material-icons-sharp">calendar_today</span>
+              <h3>Claims</h3>
+            </a>
+
+            <a *ngIf=" isHR || isCRMManager || isConsultant || isEmployee || isProjectManager" routerLink="/back/reclamation">
+              <span class="material-icons-sharp">calendar_today</span>
+                <h3>Claim</h3>
+              </a>
+
+        <a *ngIf=" isHR" routerLink="/back/performances/performanceuser">
+            <span class="material-icons-sharp">insights</span>
+            <h3>Performances</h3>
+          </a>
+        <a  *ngIf="isAdmin || isHR"routerLink="/back/departments">
+            <span class="material-icons-sharp">person_outline</span>
+            <h3>Departments</h3>
+          </a>
+        <a *ngIf="isAdmin || isHR" routerLink="/back/empContracts">
+            <span class="material-icons-sharp">receipt_long</span>
+            <h3>Contracts</h3>
+          </a>
+
+          <a  *ngIf=" isHR" routerLink="/back/jobOffers">
+            <span class="material-icons-sharp">assignment</span>
+            <h3>Job Offers</h3>
+          </a>
+          <a *ngIf=" isHR" routerLink="/meet">
+            <span class="material-icons-sharp">event</span>
+            <h3>Meet</h3>
+          </a>
+          <a *ngIf=" isProjectManager" routerLink="/back/projects">
+            <span class="material-icons-sharp">business</span>
+            <h3>Projects</h3>
+          </a>
+          <a *ngIf="isAdmin" href="/back/user">
+            <span class="material-icons-sharp">
+                person_outline
+            </span>
+            <h3>Users</h3>
+        </a>
+
+        <a *ngIf="isAdmin" href="/back/graph" >
+            <span class="material-icons-sharp">
+                insights
+            </span>
+            <h3>Analytics</h3>
+        </a>
+        <a *ngIf="isAdmin" href="/back/profile">
+            <span class="material-icons-sharp">
+                mail_outline
+            </span>
+            <h3>Your Account</h3>
+        </a>
+        <a *ngIf="isCRMManager" routerLink="/back/invoices">
+          <span class="material-icons-sharp">
+            description <!-- Nouvelle icône pour Invoices -->
+          </span>
+                <h3>Invoices</h3>
+              </a>
+              <a *ngIf="isCRMManager " routerLink="/back/contrat">
+          <span class="material-icons-sharp">
+            assignment <!-- Nouvelle icône pour Contrat -->
+          </span>
+                <h3>Contrat</h3>
+              </a>
+              <a *ngIf="isCRMManager " routerLink="/back/add-tasks"> <!-- Lien vers la page d'ajout de tâches -->
+                <span class="material-icons-sharp">
+                        playlist_add <!-- Icône pour l'ajout de tâches -->
+                    </span>
+                <h3>Add Tasks</h3> <!-- Texte du lien -->
+              </a>
+              <a  *ngIf=" isCRMManager " routerLink="/back/tasks">
+          <span class="material-icons-sharp">
+            assignment <!-- Nouvelle icône pour Contrat -->
+          </span>
+                <h3>Tasks</h3>
+              </a>
+      
+              <a *ngIf="isAdmin || isCRMManager " routerLink="/back/statistiques">
+          <span class="material-icons-sharp">
+            assignment <!-- Nouvelle icône pour Contrat -->
+          </span>
+                <h3>Statistiques</h3>
+              </a>
+
+        <a *ngIf="isConsultant || isProjectManager ||  isEmployee " [routerLink]="['/back/getAllTrainings']">
+            <span class="material-icons-sharp">
+                train
+            </span>
+            <h3>Trainings</h3>
+        </a>
+        <a *ngIf="isAdmin || isConsultant || isProjectManager ||  isEmployee" [routerLink]="['/back/getallMeetings']">
+            <span class="material-icons-sharp">
+                meeting_room
+            </span>
+            <h3>Meetings</h3>
+        </a>
+        <a *ngIf="isAdmin || isConsultant || isEmployee ||  isProjectManager " [routerLink]="['/back/getAllReports']" >
+            <span class="material-icons-sharp">
+                description
+            </span>
+            <h3>Reports</h3>
+        </a>
+        <!-- Add routerLink and routerLinkActive for other links -->
+        <a *ngIf="isAdmin || isConsultant || isEmployee ||  isProjectManager " [routerLink]="['/back/getAll']">
+            <span class="material-icons-sharp">
+                business_center
+            </span>
+            <h3>Activity Management</h3>
+            <span class="message-count">27</span>
+        </a>
+        <a *ngIf="isAdmin || isConsultant || isEmployee ||  isProjectManager " [routerLink]="['/back/allFeedbacks']">
+            <span class="material-icons-sharp">
+                feedback
+            </span>
+            <h3>Feedbacks</h3>
+        </a>
+        <a *ngIf="isAdmin || isConsultant || isProjectManager " [routerLink]="['/back/getAllConsultants']">
+            <span class="material-icons-sharp">
+                people
+            </span>
+            <h3>Consultants</h3>
+        </a>
+
+        <a *ngIf="isAdmin || isConsultant || isEmployee ||  isProjectManager " [routerLink]="['/back/store']">
+            <span class="material-icons-sharp">
+                store
+            </span>
+            <h3>Knowledge Store</h3>
+        </a>
+        <a *ngIf="isAdmin || isConsultant  ||  isProjectManager " [routerLink]="['/back/Tracking']">
+            <span class="material-icons-sharp">
+                track_changes
+            </span>
+            <h3>Task Tracking</h3>
+        </a>
+        <a *ngIf="isAdmin || isEmployee  ||  isCRMManager || isProjectManager " routerLink="leaves/user/9">
+          <span class="material-icons-sharp">calendar_today</span>
+          <h3>Leave</h3>
+        </a>
+        <a *ngIf="isAdmin || isEmployee  ||  isCRMManager || isProjectManager "  routerLink="/back/performances">
+          <span class="material-icons-sharp">insights</span>
+          <h3>Performance</h3>
+        </a>
+        <a *ngIf="isCRM_team"  routerLink="/back/tasksteams">
+          <span class="material-icons-sharp">insights</span>
+          <h3>Task team</h3>
+        </a>
+        <a href="#" (click)="logout()">
+          <span class="material-icons-sharp">
+            logout
+          </span>
+          <h3>Logout</h3>
+        </a>
+        <br>
+        
+    
+
+    </div>
+   
+</aside>
+<!-- End of Sidebar Section -->

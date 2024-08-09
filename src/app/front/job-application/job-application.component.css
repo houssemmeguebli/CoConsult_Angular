@@ -1,0 +1,178 @@
+.card {
+  width: auto;
+  height: auto;
+}
+.no-applications-message {
+  font-size: 1.25rem; /* Taille de police plus grande */
+  padding: 1rem; /* Ajoute de l'espace autour du message */
+}
+.search-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-header {
+  margin-bottom: 20px;
+}
+
+.search-header h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.search-header span {
+  color: #057077;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #057077;
+  border-color: #057077;
+}
+
+.btn-primary:hover {
+  background-color: #04555c;
+  border-color: #04555c;
+}
+
+.search-result h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.search-result p {
+  font-size: 1rem;
+}
+/* Style pour la section de résultat de la recherche */
+.search-result {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.search-result {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.result-title {
+  color: #333;
+}
+
+.found-terms {
+  color: #057077;
+  font-weight: bold;
+}
+
+.found-text {
+  color: #000;
+
+}
+.close-button {
+  background-color: white;
+  color: #057077;
+  border: 1px solid #057077;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #057077;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: rgba(5, 112, 119, 0.22);
+  border-color: rgba(5, 112, 119, 0.22);
+}
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Style pour le titre des résultats de la recherche */
+.search-results-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style pour la liste des applications d'emploi */
+.job-application-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style pour chaque élément de la liste des applications d'emploi */
+.job-application-item {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* Style pour le titre de chaque application d'emploi */
+.job-application-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* Style pour les détails de chaque application d'emploi */
+.job-application-detail {
+  margin-bottom: 5px;
+  font-weight: bold;
+
+}
+
+/* Style pour le message en cas de non-résultat */
+.no-results-message {
+  font-size: 18px;
+  color: #999;
+}
+
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination button {
+  color: #057077;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination button.active {
+  background-color: #057077;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination button:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+
+.page-info {
+  flex-grow: 1;
+  text-align: center; /* Pour centrer le texte horizontalement */
+  font-size: 14px;
+  color: #057077;
+}

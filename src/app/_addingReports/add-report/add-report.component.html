@@ -1,0 +1,58 @@
+<div class="ex-form-1 pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="add(f); formSubmitted = true;">
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingInput2" name="projectname" [(ngModel)]="report.projectname" required minlength="3" #projectname="ngModel">
+              <label for="projectname">Project Name :</label>
+              <div *ngIf="(formSubmitted || projectname.touched) && projectname.invalid" class="text-danger">
+                <div *ngIf="projectname.errors?.['required']">
+                  Project Name is required.
+                </div>
+                <div *ngIf="projectname.errors?.['minlength']">
+                  Project Name must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+            <div class="mb-4 form-floating">
+              <select class="form-select" id="floatingPassword" name="consultantName" [(ngModel)]="report.consultantname" required>
+                <option *ngFor="let name of consultantNames" [value]="name">{{ name }}</option>
+              </select>
+              <label for="consultantname"> Consultant name :</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingPassword1" name="addingreportsDescpriton" [(ngModel)]="report.addingreportsDescpriton" required minlength="3" #addingreportsDescpriton="ngModel">
+              <label for="addingreportsDescpriton">Description :</label>
+              <div *ngIf="(formSubmitted || addingreportsDescpriton.touched) && addingreportsDescpriton.invalid" class="text-danger">
+                <div *ngIf="addingreportsDescpriton.errors?.['required']">
+                  Description is required.
+                </div>
+                <div *ngIf="addingreportsDescpriton.errors?.['minlength']">
+                  Description must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="date" class="form-control" id="floatingPassword3" name="addingreportsDate" [(ngModel)]="report.addingreportsDate" required>
+              <label for="addingreportsDate">Adding report date :</label>
+            </div>
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+            </div>
+            <form [formGroup]="aFormGroup" class="recaptcha-form">
+              <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form>
+            <button type="submit" class="form-control-submit-button">Add Report</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

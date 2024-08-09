@@ -1,0 +1,72 @@
+<div *ngIf="leave" class="futuristic-card-container">
+    <mat-card class="futuristic-card">
+      <mat-card-header>
+        <mat-card-title class="futuristic-card-title">Leave Details</mat-card-title>
+        <br>
+        <br>
+        <br>
+        <br>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Type:</strong> {{ leave.typeLeave }}</p><br>
+        <p><strong>Start Date:</strong> {{ leave.startDateLeave | date }}</p><br>
+        <p><strong>End Date:</strong> {{ leave.endDateLeave | date }}</p><br>
+        <p><strong>Leave Status:</strong> {{ leave.etat }}</p><br>
+          <!-- Add more details as needed -->
+        </mat-card-content>
+        <button class="btn btn-warning futuristic-btn" (click)="showEditForm()">
+          <i class="fas fa-edit"></i> Edit Leave
+        </button>
+      </mat-card>
+    </div>
+
+  <!-- Edit form -->
+  <div class="popup-background" *ngIf="showEdit">
+    <div class="popup-content">
+      <form [formGroup]="leaveForm" class="futuristic-form" (ngSubmit)="saveLeave()">
+        <h1 class="display-4 text-center mb-5" style="color: #057077;">Update Leave Status</h1>
+        <div class="form-group">
+            <label for="typeLeave">Type:</label>
+            <select formControlName="typeLeave" class="form-control futuristic-input" required>
+                <option *ngFor="let option of leaveTypes" [value]="option">{{ option }}</option>
+            </select>
+            <div *ngIf="leaveForm.get('typeLeave')?.invalid && leaveForm.get('typeLeave')?.touched" class="error-message">
+                Type is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="startDateLeave">Start Date:</label>
+            <input formControlName="startDateLeave" type="date" class="form-control futuristic-input" required>
+            <div *ngIf="leaveForm.get('startDateLeave')?.invalid && leaveForm.get('startDateLeave')?.touched" class="error-message">
+                Start date is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="endDateLeave">End Date:</label>
+            <input formControlName="endDateLeave" type="date" class="form-control futuristic-input" required>
+            <div *ngIf="leaveForm.get('endDateLeave')?.invalid && leaveForm.get('endDateLeave')?.touched" class="error-message">
+                End date is required.
+            </div>
+            <div *ngIf="leaveForm.hasError('endDateBeforeStartDate')" class="error-message">
+                End date must be after start date.
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="etat">Etat:</label>
+            <select formControlName="etat" class="form-control futuristic-input" required>
+                <option *ngFor="let option of etatLeaveOptions" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+         <div *ngIf="leaveForm.get('endDateLeave')?.hasError('endDateBeforeStartDate')" class="error-message">
+        End date must be after start date.
+      </div>
+      <div *ngIf="startDateBeforeToday" class="error-message">
+        Cannot save leave with start date already passed.
+    </div>
+        <button type="submit" [disabled]="!leaveForm.valid" class="btn btn-primary futuristic-btn">Submit</button>
+    </form>
+    
+        
+  </div>
+</div>

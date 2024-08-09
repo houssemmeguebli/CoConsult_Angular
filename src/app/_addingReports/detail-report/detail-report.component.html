@@ -1,0 +1,17 @@
+<div *ngIf="report" class="card">
+  <div class="card-header">
+
+    <h2>{{ report.projectname }}</h2>
+  </div>
+  <div class="card-body">
+    <p>report consultant :{{ report.consultantname }}</p>
+    <p>report description :{{ report.addingreportsDescpriton }}</p>
+    <p>date: {{ report.addingreportsDate | date: 'medium' }}</p>
+
+
+  </div>
+  <div class="card-footer">
+    <button mat-raised-button class="btn " id="btn1" (click)="navigateToUpdatereport(report.idAddingreports)">Edit</button>
+    <button mat-raised-button class="btn" id="btn2" (click)="deleteReport(report.idAddingreports)">Delete</button>
+  </div>
+</div>

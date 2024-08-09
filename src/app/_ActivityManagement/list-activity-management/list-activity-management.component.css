@@ -1,0 +1,105 @@
+
+
+
+/* Buttons */
+a.btn {
+  background-color: #FFFFFF; /* Primary Color: Orange */
+  border-color: #057077;
+  border-width: 3px;
+   /* Primary Color: Orange */
+  padding: 10px 20px;
+  color: #057077;
+  text-decoration: none;
+}
+
+.btn-transparent {
+  color: #057077; /* Accent Color: Green */
+  border-color: #057077; /* Accent Color: Green */
+  background-color: transparent;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn-transparent:hover {
+  background-color: #FFA500!important; /* Accent Color: Green */
+  color: #FFFFFF; /* Secondary Color: White */
+}
+
+/* Table headers */
+.table th {
+  background-color: #057077; /* Accent Color: Green */
+  color: #FFFFFF;
+  text-align: center; /* Secondary Color: White */
+  padding: 10px;
+}
+
+/* Table rows */
+.table tr {
+  border-bottom: 1px solid #057077; /* Accent Color: Green */
+}
+
+/* SVG icons */
+
+.bi-trash3 {
+  fill: red; /* Accent Color: Green */
+}
+
+.bi-pencil {
+  fill: #052077; /* Accent Color: Green */
+}
+
+/* Hover effect on SVG icons */
+.btn-transparent:hover .bi-eye,
+.btn-transparent:hover .bi-pencil,
+.btn-transparent:hover .bi-trash3 {
+  fill: #FFFFFF; /* Secondary Color: White */
+}
+.flex{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+button {
+  margin: 5px;
+}
+
+table {
+  border-style: groove;
+  border-radius: 30px;
+  width: 100%;
+  overflow-x: auto; /* Ajout du défilement horizontal */
+}
+
+table td {
+  text-align: center;
+  padding: 10px;
+}
+
+#search {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 500px;
+
+}
+.btn{
+  border-style: groove;
+  border-radius: 10px;
+  text-align: center;
+  border-color: #057077;
+  border-width: 1px;
+  background-color: white;
+}
+input{
+  height: 50px;
+  border-style: groove;
+  border-radius: 20px;
+  text-align: center;
+  border-color: #057077;
+  border-width: 1px;
+}
+@media screen and (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+.reclamation-dialog {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dialog-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .processed-button,
+  .rejected-button,
+  .delete-button {
+    min-width: 120px;
+    border-radius: 20px; /* Bords arrondis */
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .processed-button {
+    background-color: #125c14; /* Vert pour indiquer le traitement */
+    color: #fff; /* Texte en blanc pour contraste */
+  }
+  
+  .rejected-button {
+    background-color: #871810; /* Rouge pour indiquer le rejet */
+    color: #fff; /* Texte en blanc pour contraste */
+  }
+  
+  .delete-button {
+    background-color: #311e18; /* Orange pour indiquer la suppression */
+    color: #fff; /* Texte en blanc pour contraste */
+  }

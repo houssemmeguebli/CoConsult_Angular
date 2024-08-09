@@ -1,0 +1,128 @@
+<br><br><br><br><br>
+<div class="card border-0 shadow">
+  <div class="card-body">
+
+    <div class="table-responsive">
+      <h2 style="color:#f25c05;">Projects</h2>
+      <br>
+
+      <div>
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search projects..." (input)="searchProjects()" style="width: 250px">
+        <div *ngIf="noProjectsFound" class="alert alert-warning mt-3">
+          No projects found with this name.
+        </div>
+
+      </div>
+      <br>
+
+      <table class="table table-striped" id="projectsTable" *ngIf="!noProjectsFound" >
+
+        <thead>
+        <tr>
+          <th style="background-color: #057077; color: white">Project Name</th>
+          <th style="background-color: #057077; color: white">Project Description</th>
+          <th style="background-color: #057077; color: white">Start Date</th>
+          <th style="background-color: #057077; color: white">End Date</th>
+
+          <th style="background-color: #057077; color: white" class="projectTableActions">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let project of paginatedProjects">
+          <td>{{ project.projectName }}</td>
+          <td>{{ project.projectDescription }}</td>
+          <td >{{ project.startDate | date:'MM-dd-yyyy' }}</td>
+          <td >{{ project.endDate | date:'MM-dd-yyyy' }}</td>
+          <td class="projectTableActions">
+            <button class="btn btn-danger btn-sm me-2" (click)="deleteProject(project.idProject)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="btn btn-primary btn-sm" [routerLink]="['/back/updateProject/', project.idProject]">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" href="javascript:void(0);" (click)="currentPage > 1 && onSetPage(currentPage - 1)">Previous</a>
+          </li>
+          <li class="page-item" *ngFor="let page of [].constructor(Math.ceil(projects.length / pageSize)); let index = index" [class.active]="currentPage === index + 1">
+            <a class="page-link" href="javascript:void(0);" (click)="onSetPage(index + 1)" >{{ index + 1 }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === Math.ceil(projects.length / pageSize)">
+            <a class="page-link" href="javascript:void(0);" (click)="currentPage < Math.ceil(projects.length / pageSize) && onSetPage(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="btn btn-primary me-2" (click)="toggleForm()" > Add Project
+      <i class="fas fa-plus"></i>
+    </button>
+      <button class="btn btn-primary me-2" [routerLink]="['/back/projectsCalender']">
+         Calendar
+        <i class="fas fa-calendar-alt"></i>
+      </button>
+      <button class="btn btn-primary me-2"  (click)="generatePDF()" >  Export PDF
+        <i class="fas fa-file-pdf"></i>
+      </button>
+      <button class="btn btn-primary me-2" [routerLink]="['/back/projectsStat']">
+        Statistics
+        <i class="fas  fa-chart-bar"></i>
+      </button>
+
+      <br><br><br>
+    <div *ngIf="showForm" class="form-container align-content-center" style="max-width: 600px; margin: auto; ">
+
+<form  [formGroup]="projectForm" (ngSubmit)="addProject()">
+  <div class="form-group">
+    <label for="projectName" class="form-label">Project Name:</label>
+    <br>
+    <input type="text" class="form-control" id="projectName" formControlName="projectName" placeholder="Enter project name">
+    <div *ngIf="projectForm.get('projectName')?.touched && projectForm.get('projectName')?.errors" class="text-danger">
+      <div *ngIf="projectForm.get('projectName')?.hasError('required')">Project name is required.</div>
+      <div *ngIf="projectForm.get('projectName')?.hasError('minlength')">Project name must be at least 3 characters long.</div>
+      <div *ngIf="projectForm.get('projectName')?.hasError('maxlength')">Project name cannot exceed 50 characters.</div>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <label for="projectDescription" class="form-label">Project Description:</label>
+    <br>
+    <textarea class="form-control" id="projectDescription" formControlName="projectDescription" placeholder="Enter project description"></textarea>
+    <div *ngIf="projectForm.get('projectDescription')?.touched && projectForm.get('projectDescription')?.errors" class="text-danger">
+      <div *ngIf="projectForm.get('projectDescription')?.hasError('required')">Project description is required.</div>
+      <div *ngIf="projectForm.get('projectDescription')?.hasError('minlength')">Project description must be at least 10 characters long.</div>
+      <div *ngIf="projectForm.get('projectDescription')?.hasError('maxlength')">Project description cannot exceed 500 characters.</div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="projectDate" class="form-label">Start Date:</label>
+    <input type="date" class="form-control" id="starDate" formControlName="startDate" [min]="getCurrentDate()">
+    <div *ngIf="projectForm.get('startDate')?.touched && projectForm.get('startDate')?.errors" class="text-danger">
+      <div *ngIf="projectForm.get('startDate')?.hasError('required')">Star date is required.</div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="projectDate" class="form-label">End Date:</label>
+    <input type="date" class="form-control" id="projectDate" formControlName="endDate" [min]="getCurrentDate()">
+    <div *ngIf="projectForm.get('endDate')?.touched && projectForm.get('endDate')?.errors || projectForm.hasError('datesInvalid')" class="text-danger">
+      <div *ngIf="projectForm.get('endDate')?.hasError('required')">End date is required.</div>
+      <div *ngIf="projectForm.hasError('datesInvalid')">End date cannot be before start date.</div>
+    </div>
+  </div>
+  <br>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Add Project</button>
+  </div>
+
+</form>
+  </div>
+</div>
+</div>
+</div>

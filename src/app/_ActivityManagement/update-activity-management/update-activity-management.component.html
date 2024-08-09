@@ -1,0 +1,48 @@
+<div class="ex-form-1 pt-5 pb-5">
+  <div >
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="update(f)">
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingInput2" name="jobName" [(ngModel)]="task.jobName" required>
+              <label for="jobName">Job Name</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingPassword" name="activityManagementDescpriton" [(ngModel)]="task.activityManagementDescpriton" required>
+              <label for="activityManagementDescpriton">Activity Management Description</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingPassword1" name="activityManagementpriority" [(ngModel)]="task.activityManagementpriority" required>
+              <label for="activityManagementpriority">Activity Management Priority</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingPassword2" name="activityManagementstatus" [(ngModel)]="task.activityManagementstatus" required>
+              <label for="activityManagementstatus">Activity Management Status</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="date" class="form-control" id="floatingPassword3" name="jobExpirationDate" [(ngModel)]="task.jobExpirationDate" required>
+              <label for="jobExpirationDate">Job Expiration Date</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="number" class="form-control" id="floatingPassword4" name="numberofhours" [(ngModel)]="task.numberofhours" required>
+              <label for="numberofhours">Number of Hours</label>
+            </div>
+
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+            </div>
+            <form [formGroup]="aFormGroup" class="recaptcha-form">
+              <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form>
+            <button id="abc" type="submit" class="form-control-submit-button" [disabled]="f.invalid">Update Task</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

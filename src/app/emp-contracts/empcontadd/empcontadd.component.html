@@ -1,0 +1,47 @@
+<form [formGroup]="empcontractForm" class="futuristic-form">
+  <h1 class="display-4 text-center mb-5" style="color: #057077;">Add contract</h1>
+  <br>
+  <br>
+  <!-- Champ "Type" -->
+  <div class="form-group">
+    <label for="type">Type:</label>
+    <select formControlName="type" class="form-control futuristic-input" required>
+        <option *ngFor="let type of contractTypes" [value]="type">{{ type }}</option>
+    </select>
+    <div *ngIf="empcontractForm.get('type')?.invalid && empcontractForm.get('type')?.touched" class="error-message">
+        Type is required.
+    </div>
+</div>
+
+  <!-- Champ "Start date" -->
+  <div class="form-group">
+      <label for="startDate">Start date:</label>
+      <input type="date" formControlName="startDate" class="form-control futuristic-input" required>
+      <div *ngIf="empcontractForm.get('startDate')?.invalid && empcontractForm.get('startDate')?.touched" class="error-message">
+          Start date est requis.
+      </div>
+  </div>
+
+  <!-- Champ "End date" -->
+<div class="form-group">
+  <label for="endDate">End date:</label>
+  <input type="date" formControlName="endDate" class="form-control futuristic-input" required>
+  <div *ngIf="empcontractForm.get('endDate')?.hasError('endDateBeforeStartDate')" class="error-message">
+    End date must be after start date.
+  </div>
+</div>
+
+
+  <!-- Champ "Employee's name" -->
+  <div class="form-group">
+    <label for="nameEmp">Employee's name:</label>
+    <select formControlName="nameEmp" class="form-control futuristic-input" required>
+        <option *ngFor="let name of employeeNames" [value]="name">{{ name }}</option>
+    </select>
+    <div *ngIf="empcontractForm.get('nameEmp')?.invalid && empcontractForm.get('nameEmp')?.touched" class="error-message">
+        Employee's name is required.
+    </div>
+</div>
+
+  <button type="submit" class="btn btn-primary futuristic-btn" (click)="save()">Submit</button>
+</form>

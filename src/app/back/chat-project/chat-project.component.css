@@ -1,0 +1,13 @@
+.chat-container {
+  width: 100%;
+  height: 400px; /* Définissez la hauteur souhaitée */
+  border: 1px solid #ccc; /* Ajoutez une bordure pour délimiter le chat */
+  border-radius: 10px; /* Ajoutez des coins arrondis pour l'esthétique */
+  overflow: hidden; /* Masquez tout débordement de contenu */
+}
+
+.chat-iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Supprimez la bordure de l'iframe */
+}

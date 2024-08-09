@@ -1,0 +1,46 @@
+<h2 class="center">Update Task</h2>
+<br>
+<br>
+<form [formGroup]="taskForm" (ngSubmit)="updateTask()" class="form-container">
+  <div class="form-group">
+    <label>Description:</label>
+    <input type="text" class="form-control" formControlName="descriptionTasks" readonly>
+    <div *ngIf="taskForm.get('descriptionTasks')?.errors?.['required'] && taskForm.get('descriptionTasks')?.touched" class="alert alert-danger">
+      Description required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Recipient:</label>
+    <input type="text" class="form-control" formControlName="recipientTasks" readonly>
+    <div *ngIf="taskForm.get('recipientTasks')?.errors?.['required'] && taskForm.get('recipientTasks')?.touched" class="alert alert-danger">
+      Recipient required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email Recipient:</label>
+    <input type="email" class="form-control" formControlName="emailRecipient" readonly>
+    <div *ngIf="taskForm.get('emailRecipient')?.errors?.['required'] && taskForm.get('emailRecipient')?.touched" class="alert alert-danger">
+      Email Recipient required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Priority:</label>
+    <input type="number" class="form-control" formControlName="priority" readonly>
+    <div *ngIf="taskForm.get('priority')?.errors?.['required'] && taskForm.get('priority')?.touched" class="alert alert-danger">
+      Priority required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Date Ajout:</label>
+    <input type="date" class="form-control" formControlName="dateAjout" readonly>
+    <div *ngIf="taskForm.get('dateAjout')?.errors?.['required'] && taskForm.get('dateAjout')?.touched" class="alert alert-danger">
+      Date Ajout required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Status:</label>
+    <input type="text" class="form-control" formControlName="status">
+    <!-- Ajoutez une logique de validation si nécessaire -->
+  </div>
+  <button type="submit" class="btn btn-primary center" [disabled]="taskForm.invalid">Update Task</button>
+</form>

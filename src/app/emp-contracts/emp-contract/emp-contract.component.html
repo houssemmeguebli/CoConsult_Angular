@@ -1,0 +1,53 @@
+<div class="new-users futuristic-section">
+    <h1 class="display-4 text-center mb-5" style="color: #057077; font-family: 'Roboto', sans-serif; font-size: 48px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);">Employees contracts</h1>
+    <br>
+    <br>
+    <!-- Include the signature capture component here -->
+   <h2 class="text-center" style="color: #ffffff; font-family: 'Roboto', sans-serif; font-size: 24px; background-color: #057077; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);"> CoConsult engage {{ Nbcontract}} employés actuellement</h2>
+   <div class="table-responsive">
+    <table class="table table-striped" style="border-collapse: separate; border-spacing: 0 10px;">
+        <thead style="background-color: #057077;">
+            <tr>
+                <th style="color: white; font-size: 18px; padding: 15px; width: 15%;" class="text-center">Type</th>
+                <th style="color: white; font-size: 18px; padding: 15px; width: 15%;" class="text-center">Start Date</th>
+                <th style="color: white; font-size: 18px; padding: 15px; width: 15%;" class="text-center">End Date</th>
+                <th style="color: white; font-size: 18px; padding: 15px; width: 15%;" class="text-center">Employee Name</th>
+                <th style="color: white; font-size: 18px; padding: 15px; width: 25%;" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ec of empcontract" style="background-color: #f9f9f9;">
+                <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ ec.type }} </td>
+                <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ ec.startDate | date }} </td>
+                <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ ec.endDate | date }} </td>
+                <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ ec.nameEmp }} </td>
+                <td class="align-middle text-center" style="font-size: 16px; padding: 15px;">
+                    <button class="btn btn-outline-primary futuristic-btn2" style="font-size: 16px; padding: 10px;" [routerLink]="['/back/empContracts', ec.idContEmp]">
+                        <i class="fas fa-eye"></i>
+                    </button><span style="margin-right: 10px;"></span> <!-- Add spacing between buttons -->
+    
+                    <button class="btn btn-outline-warning futuristic-btn3" style="font-size: 16px; padding: 10px;" [routerLink]="['/back/empContracts/updateEmpContract', ec.idContEmp]">
+                        <i class="fas fa-edit"></i>
+                    </button><span style="margin-right: 10px;"></span> <!-- Add spacing between buttons -->
+    
+                    <button class="btn btn-outline-danger futuristic-btn4" style="font-size: 16px; padding: 10px;" (click)="supp(ec.idContEmp)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button><span style="margin-right: 10px;"></span> <!-- Add spacing between buttons -->
+    
+                    <button class="btn btn-outline-primary futuristic-btn" style="font-size: 16px; padding: 10px;" (click)="generatePDF(ec.idContEmp)">
+                        <i class="fas fa-file-pdf"></i> 
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+        <button class="btn btn-danger futuristic-btn" [routerLink]="['/back/empContadd']">
+            <i class="fas fa-plus"></i> Add contract
+        </button>
+    </div>
+    <br>
+    <h2>Draw your signature here to add it to the contract</h2>
+    <app-signature-input (signatureCaptured)="captureSignature($event)"></app-signature-input>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="reclamation-dialog">
+    <h2 class="dialog-heading">Reclamation Description</h2>
+    <p class="description">{{ data.description }}</p>
+    <div class="button-container">
+      <button mat-raised-button color="primary" class="processed-button" (click)="onStatusChange('PROCESSED')">Processed</button>
+      <button mat-raised-button color="warn" class="rejected-button" (click)="onStatusChange('REJECTED')">Rejected</button>
+      <button mat-raised-button color="warn" class="delete-button" (click)="onDelete()">Delete</button>
+    </div>
+  </div>

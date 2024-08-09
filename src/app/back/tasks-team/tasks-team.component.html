@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Tasks Team</h2>
+  <div *ngIf="tasks.length > 0; else noTasksMessage">
+    <br><br><br>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Description</th>
+        <th>Recipient</th>
+        <th>Email Recipient</th>
+        <th>Priority</th>
+        <th>Date Ajout</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.descriptionTasks }}</td>
+        <td>{{ task.recipientTasks }}</td>
+        <td>{{ task.emailRecipient }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.dateAjout | date: 'short' }}</td>
+        <td>{{ task.status }}</td>
+        <td><button class="btn btn-primary" (click)="goToUpdateTask(task.idTasks)">Update</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noTasksMessage>
+    <p>No tasks available for this team.</p>
+  </ng-template>
+</div>

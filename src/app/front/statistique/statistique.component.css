@@ -1,0 +1,11 @@
+/* statistiques.component.css */
+.container {
+  max-width: 400px; /* Limite la largeur du conteneur */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+}
+
+.chart-container {
+  width: 300px; /* Réduit la largeur du graphique */
+  height: 300px; /* Réduit la hauteur du graphique */
+  margin: 0 auto; /* Centre le graphique horizontalement */
+}

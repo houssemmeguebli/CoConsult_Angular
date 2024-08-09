@@ -1,0 +1,29 @@
+.card
+{
+  width: 500px;
+  margin-left: 35%;
+  margin-top: 100px;
+}
+.card-footer
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#btn1
+{
+width: 130px;
+background-color: azure;
+border-color: darkcyan;
+}
+#btn2
+{
+width: 130px;
+background-color: lavenderblush;
+border-color: red;
+}
+.card-header{
+  background-color: coral;
+
+}
+

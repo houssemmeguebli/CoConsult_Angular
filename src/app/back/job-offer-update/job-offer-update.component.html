@@ -1,0 +1,69 @@
+
+
+
+
+<br>
+<br>
+
+<br>
+<br>
+<div class="card border-0 shadow">
+  <div class="card-body">
+
+<br>
+    <div class="form-container align-content-center" style="max-width: 600px; margin: auto; ">
+  <br>
+  <h2 style="text-align: center ;color:#f25c05;">Update Job Offer '{{jobOffer.jobName}}'</h2>
+  <br>
+  <form [formGroup]="jobOfferForm" (ngSubmit)="Update()">
+    <div class="form-group">
+      <label for="jobName" class="form-label">Job Name:</label>
+      <br>
+      <input type="text" class="form-control" id="jobName" formControlName="jobName" placeholder="Enter job name">
+      <div *ngIf="jobOfferForm.get('jobName')?.touched && jobOfferForm.get('jobName')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('jobName')?.hasError('required')">Job name is required.</div>
+        <div *ngIf="jobOfferForm.get('jobName')?.hasError('minlength')">Job name must be at least 3 characters long.</div>
+        <div *ngIf="jobOfferForm.get('jobName')?.hasError('maxlength')">Job name cannot exceed 50 characters.</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="jobDescription" class="form-label">Job Description:</label>
+      <br>
+      <textarea class="form-control" id="jobDescription" formControlName="jobDescription" placeholder="Enter job description"></textarea>
+      <div *ngIf="jobOfferForm.get('jobDescription')?.touched && jobOfferForm.get('jobDescription')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('jobDescription')?.hasError('required')">Job description is required.</div>
+        <div *ngIf="jobOfferForm.get('jobDescription')?.hasError('minlength')">Job description must be at least 10 characters long.</div>
+        <div *ngIf="jobOfferForm.get('jobDescription')?.hasError('maxlength')">Job description cannot exceed 500 characters.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="jobExpirationDate" class="form-label">Job Expiration Date:</label>
+      <br>
+      <input type="date" class="form-control" id="jobExpirationDate" formControlName="jobExpirationDate" [min]="getCurrentDate()">
+      <div *ngIf="jobOfferForm.get('jobExpirationDate')?.touched && jobOfferForm.get('jobExpirationDate')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('jobExpirationDate')?.hasError('required')">Expiration date is required.</div>
+        <div *ngIf="jobOfferForm.get('jobExpirationDate')?.hasError('min')">Expiration date cannot be in the past.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="positionNumber" class="form-label">Position Number:</label>
+      <br>
+      <input type="number" class="form-control" id="positionNumber" formControlName="positionNumber" placeholder="Enter position number">
+      <div *ngIf="jobOfferForm.get('positionNumber')?.touched && jobOfferForm.get('positionNumber')?.errors" class="text-danger">
+        <div *ngIf="jobOfferForm.get('positionNumber')?.hasError('required')">Position number is required.</div>
+        <div *ngIf="jobOfferForm.get('positionNumber')?.hasError('min')">Position number must has 1 place at least </div>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="jobOfferForm.invalid">Update Job Offer</button>
+    </div>
+  </form>
+</div>
+    <br>
+  </div>
+</div>

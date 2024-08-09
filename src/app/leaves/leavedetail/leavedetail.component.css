@@ -1,0 +1,55 @@
+/* Popup background */
+.popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Ensure it's on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Popup content */
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  /* Center the card horizontally and vertically */
+.futuristic-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Make it take the full viewport height */
+  }
+  
+  /* Card styles */
+  .futuristic-card {
+    width: 600px; /* Adjust as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .futuristic-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #057077;
+  }
+  
+  .mat-card-content {
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .btn {
+    margin-top: 20px; /* Add space between card content and button */
+  }
+  
+  
+  /* Additional styling for form fields and buttons */
+  

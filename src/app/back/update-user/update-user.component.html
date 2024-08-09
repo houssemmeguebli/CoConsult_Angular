@@ -1,0 +1,60 @@
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <div class="form-container align-content-center" style="max-width: 600px; margin: auto;">
+      <h2 style="text-align: center">Update User</h2>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation" novalidate>
+        <div class="col-12">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" formControlName="username" required>
+          <div *ngIf="userForm.get('username')?.invalid && (userForm.get('username')?.dirty || userForm.get('username')?.touched)" class="invalid-feedback">
+            Username is required
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" required>
+          <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)" class="invalid-feedback">
+            Email is required
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="role" class="form-label">Role</label>
+          <select class="form-select" id="role" formControlName="role" required>
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+            <option value="MODERATOR">Moderator</option>
+          </select>
+          <div *ngIf="userForm.get('role')?.invalid && (userForm.get('role')?.dirty || userForm.get('role')?.touched)" class="invalid-feedback">
+            Role is required
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="gender" class="form-label">Gender</label>
+          <input type="text" class="form-control" id="gender" formControlName="gender" required>
+        </div>
+        <div class="col-12">
+          <label for="departmentName" class="form-label">Department Name</label>
+          <input type="text" class="form-control" id="departmentName" formControlName="departmentName" required>
+        </div>
+        <div class="col-12">
+          <label for="dateOfBirth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth" required>
+        </div>
+        <div class="col-12">
+          <label for="profilePicture" class="form-label">Profile Picture URL</label>
+          <input type="text" class="form-control" id="profilePicture" formControlName="profilePicture">
+        </div>
+        <div class="col-12">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" required>
+          <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)" class="invalid-feedback">
+            Password is required
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary w-100" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

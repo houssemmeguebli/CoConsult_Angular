@@ -1,0 +1,80 @@
+.con{
+  margin-top: 70px;
+}
+/* Main container */
+a{
+  background-color: #FFFFFF; /* Primary Color: Orange */
+  border-color: #057077;
+  border-width: 3px;
+   /* Primary Color: Orange */
+  padding: 10px 20px;
+  color: #057077;
+  text-decoration: none;
+}
+.btn{
+  border-style: groove;
+  border-radius: 10px;
+  text-align: center;
+  border-color: #057077;
+  border-width: 1px;
+  background-color: white;
+}
+input{
+  height: 40px;
+  border-style: groove;
+  border-radius: 10px;
+  text-align: center;
+  border-color: #057077;
+  border-width: 1px;
+}
+
+.btn-transparent {
+  color: #057077;
+  border-color: #057077;
+}
+
+
+/* Table headers */
+.table th {
+  background-color: #057077;
+  color: #FFFFFF;
+  text-align: center;
+
+}
+#tab2{
+  width: 30%;
+}
+/* Table rows */
+.table tr {
+  border-bottom: 1px solid #057077;
+}
+
+.bi-trash3{
+  fill :red;
+}
+.bi-pencil {
+  fill: #052077; /* Accent Color: Green */
+}
+
+
+button{
+  margin: 5px;
+}
+table td
+{
+  text-align: center;
+}
+table{
+  border-style: groove;
+  border-radius: 30px;
+}
+.abc
+{
+  border-width: 1px;
+  border-style: groove;
+  border-color: #057077;
+  background-color: #FFFFFF;
+  color: #057077;
+  border-radius: 8px;
+  padding: 10px;
+}

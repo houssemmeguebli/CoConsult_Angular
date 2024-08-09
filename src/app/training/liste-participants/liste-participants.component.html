@@ -1,0 +1,16 @@
+<!-- liste-participants.component.html -->
+<div>
+  <h2>Participants list</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Participant name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let participant of participants">
+        <td>{{ participant }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

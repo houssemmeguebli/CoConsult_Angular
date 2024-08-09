@@ -1,0 +1,49 @@
+<br>
+<br>
+<div class="container">
+  <br>
+  <br>
+  <h2>Contrats</h2>
+</div>
+<div>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Project Name</th>
+      <th>Email</th>
+      <th>Etat</th>
+      <th>Actions</th>
+      <th>Add Invoice</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contrat of contrats">
+      <td>{{ contrat.description }}</td>
+      <td>{{ contrat.startDate | date }}</td>
+      <td>{{ contrat.endDate | date }}</td>
+      <td>{{ contrat.projectName }}</td>
+      <td>{{ contrat.email }}</td>
+      <td [ngClass]="{
+              'text-red': contrat.etat === 'en_attente' || contrat.etat === null,
+              'text-green': contrat.etat === 'Actif'
+            }">
+        {{ contrat.etat === null ? 'en_attente' : contrat.etat }}
+      </td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-backoffice-view" [routerLink]="['/back/contrat', contrat?.idContrat]"><i class="fas fa-eye"></i></button>
+          <button class="btn btn-backoffice-update" [routerLink]="['/back/update-contrat-back', contrat?.idContrat]"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-backoffice-delete" (click)="deleteContrat(contrat.idContrat)"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </td>
+      <td>
+        <button class="btn btn-add-invoice" *ngIf="contrat.etat === 'Actif'" (click)="navigateToAddInvoice(contrat.idContrat)"><i class="fas fa-plus"></i>  </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

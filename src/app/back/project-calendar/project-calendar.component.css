@@ -1,0 +1,36 @@
+*
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  color: #057077; /* Une couleur d'en-tête qui se démarque */
+  margin-bottom: 20px; /* Espace sous l'en-tête */
+}
+
+/* Styles pour l'affichage du chargement */
+.loading {
+  text-align: center;
+  font-size: 18px; /* Taille de police pour le texte de chargement */
+  padding: 50px; /* Espacement autour du texte de chargement */
+}
+
+/* Style pour les boutons et liens */
+.btn {
+  background-color: #057077; /* Couleur de fond pour les boutons */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #057077; /* Couleur au survol */
+}
+
+.full-calendar {
+  box-shadow: none; /* Supprimez l'ombre portée si elle est appliquée par défaut */
+}

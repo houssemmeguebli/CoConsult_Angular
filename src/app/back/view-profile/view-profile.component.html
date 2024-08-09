@@ -1,0 +1,51 @@
+<br><br><br><br><br>
+
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <h2 class="mt-4">Details  of Mr {{ user?.username }} </h2>
+  
+    <br>
+    <div *ngIf="user">
+      <div class="row">
+        <div class="col-md-6">
+          
+          <div class="mb-3">
+            <label class="form-label">Username:</label>
+            <p>{{ user.username }}</p>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email:</label>
+            <p>{{ user.email }}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Gender :</label>
+            <p>{{ user.gender }}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Department :</label>
+            <p>{{ user.departmentName }}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Age:</label>
+            <p>{{ age }}</p>
+          </div>
+          
+
+          <!-- Add other user details here -->
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!user">
+      <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">User Not Found</h4>
+        <p class="mb-0">Sorry, the user details are not available.</p>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mt-3" [routerLink]="['/back/user']">Back to Users List</button>
+    </div>
+  </div>
+</div>

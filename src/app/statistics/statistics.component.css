@@ -1,0 +1,48 @@
+/* statistics.component.css */
+
+/* Style pour le conteneur du tableau */
+.statistics-container {
+  margin-top: 20px;
+}
+
+/* Style pour le titre */
+.statistics-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Style pour le tableau */
+.statistics-table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+.stat{
+  margin-top: 80px;
+}
+td,th{  text-align: center;
+}
+/* Style pour les cellules de l'en-tête */
+.statistics-table th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style pour les cellules des données */
+.statistics-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Style pour les lignes impaires */
+.statistics-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Style pour les lignes au survol */
+.statistics-table tr:hover {
+  background-color: #f2f2f2;
+
+}

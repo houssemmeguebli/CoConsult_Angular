@@ -1,0 +1,60 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card border-0 shadow">
+  <div class="card-body">
+<br>
+    <div class="form-container align-content-center" style="max-width: 600px; margin: auto; ">
+
+    <h2 style="text-align: center ;color:#f25c05;">Update Project '{{project.projectName}}'</h2>
+<br>
+    <form  [formGroup]="updateProjectForm" (ngSubmit)="updateProject()">
+  <div class="form-group">
+    <label for="projectName" class="form-label">Project Name:</label>
+    <br>
+    <input type="text" class="form-control" id="projectName" formControlName="projectName" placeholder="Enter project name">
+    <div *ngIf="updateProjectForm.get('projectName')?.touched && updateProjectForm.get('projectName')?.errors" class="text-danger">
+      <div *ngIf="updateProjectForm.get('projectName')?.hasError('required')">Project name is required.</div>
+      <div *ngIf="updateProjectForm.get('projectName')?.hasError('minlength')">Project name must be at least 3 characters long.</div>
+      <div *ngIf="updateProjectForm.get('projectName')?.hasError('maxlength')">Project name cannot exceed 50 characters.</div>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <label for="projectDescription" class="form-label">Project Description:</label>
+    <br>
+    <textarea class="form-control" id="projectDescription" formControlName="projectDescription" placeholder="Enter project description"></textarea>
+    <div *ngIf="updateProjectForm.get('projectDescription')?.touched && updateProjectForm.get('projectDescription')?.errors" class="text-danger">
+      <div *ngIf="updateProjectForm.get('projectDescription')?.hasError('required')">Project description is required.</div>
+      <div *ngIf="updateProjectForm.get('projectDescription')?.hasError('minlength')">Project description must be at least 10 characters long.</div>
+      <div *ngIf="updateProjectForm.get('projectDescription')?.hasError('maxlength')">Project description cannot exceed 500 characters.</div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="projectDate" class="form-label">Start Date:</label>
+    <input type="date" class="form-control" id="starDate" formControlName="startDate" [min]="getCurrentDate()">
+    <div *ngIf="updateProjectForm.get('startDate')?.touched && updateProjectForm.get('startDate')?.errors" class="text-danger">
+      <div *ngIf="updateProjectForm.get('startDate')?.hasError('required')">Expiration date is required.</div>
+    </div>
+  </div>
+      <br>
+      <div class="form-group">
+        <label for="projectDate" class="form-label">End Date:</label>
+        <input type="date" class="form-control" id="projectDate" formControlName="endDate" [min]="getCurrentDate()">
+        <div *ngIf="updateProjectForm.get('endDate')?.touched && updateProjectForm.get('endDate')?.errors" class="text-danger">
+          <div *ngIf="updateProjectForm.get('endDate')?.hasError('required')">Expiration date is required.</div>
+        </div>
+      </div>
+      <br>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary" [disabled]="updateProjectForm.invalid">Update Project</button>
+  </div>
+</form>
+  </div>
+    <br>
+</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="contract-details-container">
+  <img src="/assets/front/images/coconsult.png" alt="Description de la photo" style="float: left; margin-right: 20px; max-width: 20%; border-radius: 8px;">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2 class="center">Contrat</h2>
+  <br>
+  <div class="contract-details">
+    <h3>Objet du contrat :</h3>
+    <p>
+      Le présent contrat est établi avec CoConsult
+    </p>
+    <h3>Description :</h3>
+    <p>
+      Le Prestataire s'engage à fournir les services suivants au Client :
+      <br>
+      - Description : {{ contrat.description }}
+      <br>
+      - Date de début : {{ contrat.startDate | date }}
+      <br>
+      - Date de fin : {{ contrat.endDate | date }}
+      <br>
+      - Nom du projet : {{ contrat.projectName }}
+      <br>
+      - Email : {{ contrat.email }}
+      <br>
+      - Etat : {{ contrat.etat }}
+    </p>
+    <h3>Conditions financières :</h3>
+    <p>
+      Le Client s'engage à rémunérer le Prestataire conformément aux termes et conditions convenus.
+    </p>
+    <h3>Signature :</h3>
+    <br>
+    <br>
+  </div>
+</div>
+
+<!-- Bouton "Imprimer en PDF" en bas et centré -->
+<div style="text-align: center; margin-top: 20px;">
+  <button class="btn btn-success" (click)="printAsPDF()">Imprimer en PDF</button>
+</div>
+<br>
+<br>

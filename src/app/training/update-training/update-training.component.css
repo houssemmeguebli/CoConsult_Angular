@@ -1,0 +1,71 @@
+body {
+  background-color: #FFFFFF;
+}
+
+/* Style form container */
+.ex-form-1 {
+  padding: 2.5rem 0;
+}
+
+/* Style text box */
+.text-box {
+  background-color: #F8F9FA;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(7, 76, 118, 0.5);
+
+}
+
+/* Style form labels */
+.text-box label {
+  color: #333333;
+  font-weight: bold;
+}
+
+/* Style form controls */
+.text-box .form-control {
+  background-color: #F0F0F0;
+  border-color: #CCCCCC;
+}
+
+/* Style form controls on focus */
+.text-box .form-control:focus {
+  border-color: #057077;
+  box-shadow: 0 0 0 0.2rem rgba(5, 112, 119, 0.25);
+}
+
+/* Style submit button */
+.text-box .form-control-submit-button {
+  background-color: #FFA500;
+  color: #FFFFFF;
+  border-color: #FFA500;
+  border-radius: 5px;
+  padding: 10px 16px;
+}
+
+/* Style checkbox and links */
+.text-box .form-check-label {
+  color: #333333;
+}
+
+.text-box .form-check-label a {
+  color: #057077;
+}
+.recaptcha-form {
+  /* margin-left: 20%; */
+  margin-bottom: 30px;
+
+}
+
+
+input{
+  margin-bottom: 10px;
+}
+#abc
+{
+  border-width: 1px;
+  border-style: groove;
+  border-color: #057077;
+  background-color: #FFFFFF;
+  color: #057077;
+}

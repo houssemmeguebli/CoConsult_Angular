@@ -1,0 +1,56 @@
+
+.task-progress-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
+  width: 600px;
+  margin-left: 30%;
+}
+
+.task-progress-container input[type="text"],
+.task-progress-container button {
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  margin-bottom: 10px;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.task-item input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-item label {
+  cursor: pointer;
+}
+
+.task-progress-container button {
+  background-color: darkcyan;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-progress-container button:hover {
+  background-color: burlywood;
+}
+
+.no-tasks-message {
+  margin-top: 20px;
+  font-style: italic;
+  color: #888;
+}

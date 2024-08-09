@@ -1,0 +1,73 @@
+<div class="container">
+  <br>
+  <br>
+  <h2>Contrats</h2>
+  <br>
+</div>
+
+<!-- Ajout du champ de recherche -->
+<div class="search-container">
+  <input type="text" placeholder="Rechercher par nom de projet" [(ngModel)]="searchTerm" />
+</div>
+
+<div class="table-container">
+  <table class="table">
+    <!-- Table Header -->
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Project Name</th>
+      <th>Email</th>
+      <th>Etat</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <!-- Table Body -->
+    <tbody>
+    <!-- Utilisation de ngFor pour parcourir les contrats filtrés -->
+    <tr *ngFor="let contrat of filterContrats()">
+      <td>{{ contrat.description }}</td>
+      <td>{{ contrat.startDate | date }}</td>
+      <td>{{ contrat.endDate | date }}</td>
+      <td>{{ contrat.projectName }}</td>
+      <td>{{ contrat.email }}</td>
+      <td
+        [ngClass]="{
+              'text-red': contrat.etat === 'en_attente' || contrat.etat === null,
+              'text-green': contrat.etat === 'Actif'
+            }"
+      >
+        {{ contrat.etat === null ? 'en_attente' : contrat.etat }}
+      </td>
+      <td>
+        <button class="btn btn-update" [routerLink]="['/front/update-contrat', contrat?.idContrat]">Update</button>
+        <button class="btn btn-view" [routerLink]="['/front/contrat', contrat?.idContrat]">View</button>
+        <button class="btn btn-delete" (click)="deleteContrat(contrat.idContrat)">Delete</button>
+        <button class="btn btn-primary" [routerLink]="['/front/invoices-detail', contrat?.idContrat]">Voir Invoices</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <mat-paginator [length]="contrats.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="pageChanged($event)">
+  </mat-paginator>
+
+  <!-- Bouton d'exportation vers Excel -->
+  <div class="export-container">
+    <button class="btn btn-export" (click)="exportToExcel()">Export to Excel</button>
+  </div>
+
+  <!-- Bouton pour voir les archives -->
+  <div class="archive-button-container">
+    <a class="btn btn-archive" routerLink="/front/archive">Voir Archives</a>
+  </div>
+
+  <br>
+  <br>
+</div>

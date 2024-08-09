@@ -1,0 +1,34 @@
+<h2>Factures</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nom du destinataire</th>
+    <th>Email du destinataire</th>
+    <th>Date de la facture</th>
+    <th>Montant</th>
+    <th>État</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let invoice of invoices" [class.danger]="!invoice.etat">
+    <td>{{ invoice.nameDestinaire }}</td>
+    <td>{{ invoice.emailDestinaire }}</td>
+    <td>{{ invoice.dateInvoice | date }}</td>
+    <td>{{ invoice.amount }}</td>
+    <td [ngClass]="{'text-green': invoice.etat, 'text-red': !invoice.etat}">
+      {{ invoice.etat ? 'Payé' : 'Impayé' }}
+    </td>
+    <td>
+      <div class="btn-group">
+        <button class="btn" (click)="viewInvoiceDetails(invoice)">
+          <i class="fas fa-info-circle"></i>
+        </button>
+        <button class="btn" (click)="deleteInvoice(invoice.idInvoices)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

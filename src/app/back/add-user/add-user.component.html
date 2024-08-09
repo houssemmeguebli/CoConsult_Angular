@@ -1,0 +1,84 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <br>
+    <br> <div class="form-container align-content-center" style="max-width: 600px; margin: auto;">
+      <br>
+      <h2 style="text-align: center">Add User</h2>
+      <br>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation" novalidate>
+        <div class="col-12">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" formControlName="username" required>
+          <div *ngIf="userForm.get('username')?.invalid && (userForm.get('username')?.dirty || userForm.get('username')?.touched)" class="invalid-feedback">
+            Username is required
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" required>
+          <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)" class="invalid-feedback">
+            Email is required
+          </div>
+        </div>
+        
+        <label for="role" class="form-label">Role</label>
+          <select class="form-select" id="role" formControlName="role" required>
+            <option value="Admin">Admin</option>
+                            <option value="USER">Employee</option>
+                            <option value="CRM_Manager">CRM Manager</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="HR">HR</option>
+                            <option value="CONSULTANT">CONSULTANT</option>
+            <!-- Add more roles as needed -->
+            <div *ngIf="userForm.get('role')?.invalid && (userForm.get('role')?.dirty || userForm.get('role')?.touched)" class="invalid-feedback">
+              Password is required
+            </div>
+          </select>
+
+        <div class="col-12">
+          <label for="gender" class="form-label">Gender</label>
+          <input type="text" class="form-control" id="gender" formControlName="gender" required>
+        </div>
+
+        <div class="col-12">
+          <label for="departmentName" class="form-label">department Name</label>
+          <input type="text" class="form-control" id="address" formControlName="departmentName" required>
+        </div>
+        <div class="col-12">
+          <label for="dateOfBirth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth" required>
+        </div>
+
+        <div class="col-12">
+          <label for="profilePicture" class="form-label">Profile Picture URL</label>
+          <input type="text" class="form-control" id="profilePicture" formControlName="profilePicture">
+        </div>
+
+        <div class="col-12">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" required>
+          <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)" class="invalid-feedback">
+            Password is required
+          </div>
+        </div>
+       
+          
+
+        <div class="col-12">
+          <button class="btn btn-primary w-100" type="submit">Submit</button>
+        </div>
+       
+      </form>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>

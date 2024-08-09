@@ -1,0 +1,19 @@
+<div *ngIf="task" class="card">
+  <div class="card-header">
+
+    <h2>{{ task.jobName }}</h2>
+  </div>
+  <div class="card-body">
+    <p>Task description :{{ task.activityManagementDescpriton }}</p>
+    <p>Task status: {{ task.activityManagementstatus }}</p>
+    <p>Job expiration date: {{ task.jobExpirationDate | date: 'medium' }}</p>
+    <p>Task status: {{ task.activityManagementstatus }}</p>
+    <p>Priority: {{ task.activityManagementpriority }}</p>
+    <p>Number of hours: {{ task.numberofhours }}</p>
+
+  </div>
+  <div class="card-footer">
+    <button mat-raised-button class="btn " id="btn1" (click)="navigateToUpdateTask(task.idActivityManagement)">Edit</button>
+    <button mat-raised-button class="btn " id="btn2" (click)="deleteTask(task.idActivityManagement)">Delete</button>
+  </div>
+</div>

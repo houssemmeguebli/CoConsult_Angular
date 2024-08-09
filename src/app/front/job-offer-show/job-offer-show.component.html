@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- Utilisation de row-cols pour définir le nombre de colonnes par ligne en fonction de la taille de l'écran -->
+    <div class="col mb-4" *ngFor="let jobOffer of filteredJobOffers">
+      <div class="card cards-2">
+        <div class="card-body">
+          <div class="card-title">
+            <h5 class="text-primary">{{ jobOffer.jobName }}</h5>
+          </div>
+          <ul class="list-unstyled li-space-lg text-left">
+            <li><strong>Description:</strong><br>{{ jobOffer.jobDescription }}</li>
+            <li><strong>Expires On:</strong><br>{{ jobOffer.jobExpirationDate | date:'MM-dd-yyyy' }}</li>
+            <li><strong>Position Number:</strong><br>{{ jobOffer.positionNumber }}</li>
+          </ul>
+          <p class="card-text mt-3 text-muted fw-light fs-6">Be part of an innovative team striving for excellence!</p>
+
+          <a [routerLink]="['AddjobApplication', jobOffer.idJobOffer]" class="btn-solid-reg btn btn-primary">Apply Now</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

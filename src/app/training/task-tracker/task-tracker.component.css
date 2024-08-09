@@ -1,0 +1,35 @@
+/* task-tracker.component.css */
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+/* task-tracker.component.css */
+
+/* Style pour le tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 70px;
+}
+
+/* Style pour les en-têtes de colonnes */
+th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style pour les lignes du tableau */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style pour les cellules du tableau */
+td {
+  padding: 8px;
+}
+
+/* Style pour les cases à cocher */
+input[type="checkbox"] {
+  margin-right: 5px;
+}

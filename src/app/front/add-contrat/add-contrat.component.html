@@ -1,0 +1,50 @@
+<h2 class="center">Nouveau Contrat</h2>
+<br>
+<br>
+<form [formGroup]="addContratForm" (ngSubmit)="addContrat()" class="form-container">
+  <div class="form-group">
+    <label>Description:</label>
+    <input type="text" class="form-control" formControlName="description">
+    <div *ngIf="addContratForm.controls['description'].invalid && addContratForm.controls['description'].touched" class="alert alert-danger">
+      <p *ngIf="addContratForm.controls['description'].hasError('required')">Description requise</p>
+      <p *ngIf="addContratForm.controls['description'].hasError('minlength')">Description doit contenir au moins 6 caractères</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Date de début:</label>
+    <input type="date" class="form-control" formControlName="startDate">
+    <div *ngIf="addContratForm.controls['startDate'].invalid && addContratForm.controls['startDate'].touched" class="alert alert-danger">
+      <p *ngIf="addContratForm.controls['startDate'].hasError('required')">Date de début requise</p>
+      <p *ngIf="addContratForm.controls['startDate'].hasError('invalidStartDate')">Date de début invalide</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Date de fin:</label>
+    <input type="date" class="form-control" formControlName="endDate">
+    <div *ngIf="addContratForm.controls['endDate'].invalid && addContratForm.controls['endDate'].touched" class="alert alert-danger">
+      <p *ngIf="addContratForm.controls['endDate'].hasError('required')">Date de fin requise</p>
+      <p *ngIf="addContratForm.controls['endDate'].hasError('invalidEndDate')">Date de fin invalide</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Nom du projet:</label>
+    <input type="text" class="form-control" formControlName="projectName">
+    <div *ngIf="addContratForm.controls['projectName'].invalid && addContratForm.controls['projectName'].touched" class="alert alert-danger">
+      <p *ngIf="addContratForm.controls['projectName'].hasError('required')">Nom du projet requis</p>
+      <p *ngIf="addContratForm.controls['projectName'].hasError('pattern')">Nom de projet invalide</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email:</label>
+    <input type="email" class="form-control" formControlName="email">
+    <div *ngIf="addContratForm.controls['email'].invalid && addContratForm.controls['email'].touched" class="alert alert-danger">
+      <p *ngIf="addContratForm.controls['email'].hasError('required')">Email requis</p>
+      <p *ngIf="addContratForm.controls['email'].hasError('email')">Format email invalide</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary center" [disabled]="addContratForm.invalid">Ajouter Contrat</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</form>

@@ -1,0 +1,72 @@
+<br>
+<br>
+<h2>Voici votre performance</h2>
+<br>
+<button class="btn btn-outline-warning futuristic-btn3" (click)="showChart()">
+  <i class="fas fa-eye"> See chart</i>
+</button>
+<br>
+<br>
+<h2 class="text-center" style="color: #ffffff; font-family: 'Roboto', sans-serif; font-size: 24px; background-color: #057077; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">Average hours worked per day: {{ getAverageHoursExcludingWeekends() }} hour</h2>
+<br>
+<div *ngIf="showchart">
+  <ngx-charts-bar-vertical
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="formatData(performances)"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+  >
+  </ngx-charts-bar-vertical></div>
+  
+<br>
+
+
+
+
+<div class="container">
+  
+  <div class="calendar" style="font-size: 20px;">
+    <div class="header" style="padding: 20px;">
+      <button (click)="previousMonth()">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <h2>{{ currentMonth | date: 'MMMM yyyy' }}</h2>
+      <button (click)="nextMonth()">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="days" style="padding: 20px;">
+      <div *ngFor="let day of calendarDays" 
+           [ngClass]="{ 'highlight-day': isPerformanceDay(day) }"
+           (click)="showPieForDay(day)"
+           style="padding: 10px;">
+        {{ day | date: 'd' }}
+      </div>
+    </div>
+</div>
+
+  
+
+  <div *ngIf="showpie" class="pie-chart-container">
+    <h2>Percentage of hours worked in {{ selectedDay | date: 'dd MMM yyyy' }}</h2>
+    <ngx-charts-pie-chart
+      [view]="[400, 400]"
+      [scheme]="colorScheme"
+      [results]="pieChartData"
+      [legend]="true"
+      [doughnut]="true"
+      [explodeSlices]="true"
+    ></ngx-charts-pie-chart>
+  </div>
+</div>
+
+  <br>
+<br>
+
+

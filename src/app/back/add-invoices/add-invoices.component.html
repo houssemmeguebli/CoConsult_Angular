@@ -1,0 +1,46 @@
+<h2 class="center">Add Invoice</h2>
+<br>
+<br>
+<form [formGroup]="addInvoiceForm" (ngSubmit)="addInvoice()" class="form-container">
+  <div class="form-group">
+    <label>Date Invoice:</label>
+    <input type="date" class="form-control" formControlName="dateInvoice">
+    <div *ngIf="addInvoiceForm.get('dateInvoice')?.errors?.['required'] && addInvoiceForm.get('dateInvoice')?.touched" class="alert alert-danger">
+      Date Invoice required
+    </div>
+    <div *ngIf="addInvoiceForm.get('dateInvoice')?.errors?.['invalidDate'] && addInvoiceForm.get('dateInvoice')?.touched" class="alert alert-danger">
+      Date must be later than today
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Amount:</label>
+    <input type="number" class="form-control" formControlName="amount">
+    <div *ngIf="addInvoiceForm.get('amount')?.errors?.['required'] && addInvoiceForm.get('amount')?.touched" class="alert alert-danger">
+      Amount required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Recipient Name:</label>
+    <input type="text" class="form-control" formControlName="nameDestinaire">
+    <div *ngIf="addInvoiceForm.get('nameDestinaire')?.errors?.['required'] && addInvoiceForm.get('nameDestinaire')?.touched" class="alert alert-danger">
+      Recipient Name required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Recipient Email:</label>
+    <input type="email" class="form-control" formControlName="emailDestinaire">
+    <div *ngIf="addInvoiceForm.get('emailDestinaire')?.errors?.['required'] && addInvoiceForm.get('emailDestinaire')?.touched" class="alert alert-danger">
+      Recipient Email required
+    </div>
+    <div *ngIf="addInvoiceForm.get('emailDestinaire')?.errors?.['email'] && addInvoiceForm.get('emailDestinaire')?.touched" class="alert alert-danger">
+      Invalid email format
+    </div>
+  </div>
+  <!-- Champ caché pour l'ID du contrat -->
+  <input type="hidden" formControlName="idContrat">
+  <button type="submit" class="btn btn-primary center" [disabled]="addInvoiceForm.invalid">Add Invoice</button>
+</form>
+<br>
+<br>
+<br>
+<br>

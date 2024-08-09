@@ -1,0 +1,42 @@
+/* Styles pour la mise en page de la facture */
+.invoice-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0); /* Dégradé de couleur pour l'arrière-plan */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-details {
+  margin-top: 20px;
+}
+
+.invoice-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table th, .table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  text-align: left;
+  font-weight: bold;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.center {
+  text-align: center;
+}

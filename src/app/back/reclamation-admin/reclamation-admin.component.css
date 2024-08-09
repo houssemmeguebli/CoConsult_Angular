@@ -1,0 +1,37 @@
+.reclamation-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .reclamation-row {
+    background-color: #fff;
+  }
+  
+  .reclamation-row:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .reclamation-table th,
+  .reclamation-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .reclamation-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .view-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .view-button:hover {
+    color: #333;
+  }
+  .delete-button mat-icon {
+    color: #f44336;
+  }
+  

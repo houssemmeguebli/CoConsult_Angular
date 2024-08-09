@@ -1,0 +1,19 @@
+/* Styles pour le composant de profil */
+.profile-card {
+    text-align: center;
+    padding-top: 4rem;
+  }
+  
+  .profile-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .social-links a {
+    margin-right: 0.5rem;
+  }
+  
+  /* Ajoutez d'autres styles selon vos besoins */
+  

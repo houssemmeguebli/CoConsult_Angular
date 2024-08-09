@@ -1,0 +1,59 @@
+/* Style des cartes */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-text {
+  color: #666;
+}
+
+.job-details {
+  list-style: none;
+  padding: 0;
+}
+
+.job-details li {
+  margin-bottom: 10px;
+}
+
+.job-details li strong {
+  color: #333;
+}
+
+/* Style du bouton */
+.apply-btn {
+  background-color: #057077;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #045a63;
+}
+
+/* Texte d'invitation */
+.invitation-text {
+  color: #999;
+  font-size: 0.9rem;
+}

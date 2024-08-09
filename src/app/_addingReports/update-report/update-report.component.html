@@ -1,0 +1,40 @@
+
+<div class="ex-form-1 pt-5 pb-5">
+  <div>
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="update(f)">
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingInput2" name="projectname" [(ngModel)]="report.projectname" required>
+              <label for="projectname">Project Name :</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingPassword" name="consultantname" [(ngModel)]="report.consultantname" required>
+              <label for="consultantname"> Consultant name :</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="floatingPassword1" name="addingreportsDescpriton" [(ngModel)]="report.addingreportsDescpriton" required>
+              <label for="addingreportsDescpriton">Description :</label>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="date" class="form-control" id="floatingPassword3" name="addingreportsDate" [(ngModel)]="report.addingreportsDate" required>
+              <label for="addingreportsDate">Adding report date :</label>
+            </div>
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+            </div>
+            <form [formGroup]="aFormGroup" class="recaptcha-form">
+              <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form>
+            <button id="abc" type="submit" class="form-control-submit-button">Update </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

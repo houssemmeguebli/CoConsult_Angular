@@ -1,0 +1,55 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card border-0 shadow">
+  <div class="card-body ">
+
+    <br>
+<div class="form-container align-content-center" style="max-width: 600px; margin: auto; ">
+  <br>
+  <h2 style="text-align: center;color:#f25c05;" >Update the interview</h2>
+  <br>
+  <form [formGroup]="interviewForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="applicantEmail" class="form-label">Applicant Email:</label>
+      <br>
+      <input type="email" class="form-control" id="applicantEmail" formControlName="applicantEmail" placeholder="Enter applicant email">
+      <div *ngIf="interviewForm.get('applicantEmail')?.touched && interviewForm.get('applicantEmail')?.errors" class="text-danger">
+        <div *ngIf="interviewForm.get('applicantEmail')?.hasError('required')">Applicant email is required.</div>
+        <div *ngIf="interviewForm.get('applicantEmail')?.hasError('email')">Invalid email format.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="interviewDescription" class="form-label">Interview Description:</label>
+      <br>
+      <textarea class="form-control" id="interviewDescription" formControlName="interviewDescription" placeholder="Enter interview description"></textarea>
+      <div *ngIf="interviewForm.get('interviewDescription')?.touched && interviewForm.get('interviewDescription')?.errors" class="text-danger">
+        <div *ngIf="interviewForm.get('interviewDescription')?.hasError('required')">Interview description is required.</div>
+        <div *ngIf="interviewForm.get('interviewDescription')?.hasError('minlength')">Interview description must be at least 10 characters long.</div>
+        <div *ngIf="interviewForm.get('interviewDescription')?.hasError('maxlength')">Interview description cannot exceed 500 characters.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="dateInterview" class="form-label">Date Interview:</label>
+      <br>
+      <input type="date" class="form-control" id="dateInterview" formControlName="dateInterview" [min]="getCurrentDate()">
+      <div *ngIf="interviewForm.get('dateInterview')?.touched && interviewForm.get('dateInterview')?.errors" class="text-danger">
+        <div *ngIf="interviewForm.get('dateInterview')?.hasError('required')">Date interview is required.</div>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="interviewForm.invalid">Update Interview</button>
+    </div>
+  </form>
+</div>
+  </div>
+</div>
+
+

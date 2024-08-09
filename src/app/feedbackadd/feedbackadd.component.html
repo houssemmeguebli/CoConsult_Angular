@@ -1,0 +1,67 @@
+<div class="ex-form-1 pt-5 pb-5">
+  <div >
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="add(f)">
+            <div class="mb-4">
+              <label for="role">Role :</label>
+              <select class="form-control" id="role" name="role" [(ngModel)]="feedback.role" required>
+                <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+              </select>
+              <div *ngIf="f.submitted && f.controls['role'].invalid" class="text-danger">
+                Role is required.
+              </div>
+            </div>
+            <input type="hidden" class="form-control" id="feedbackDate" name="feedbackDate" [(ngModel)]="feedbackDate" required>
+
+            <div class="mb-4 form-floating">
+              <label for="feedback"> Feedback :</label>
+              <select class="form-control" id="feedback" name="feedback" [(ngModel)]="feedback.feedback" required>
+                <option *ngFor="let option of feedbackOptions" [value]="option">{{ option }}</option>
+              </select>
+              <div *ngIf="f.submitted && f.controls['feedback'].invalid" class="text-danger">
+                Feedback is required.
+              </div>
+            </div>
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="consultantName" name="consultantName" [(ngModel)]="feedback.consultantName" required minlength="3">
+              <label for="consultantName">Nom du consultant :</label>
+              <div *ngIf="f.submitted && f.controls['consultantName'].invalid" class="text-danger">
+                Consultant name is required and must be at least 3 characters long.
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="number" class="form-control" id="floatingPassword1" name="rating" [(ngModel)]="feedback.rating" required min="0" max="10">
+              <label for="rating">Rating (0-10):</label>
+              <div *ngIf="f.submitted && f.controls['rating'].invalid" class="text-danger">
+                <div *ngIf="f.controls['rating'].errors?.['required']">
+                  Rating is required.
+                </div>
+                <div *ngIf="f.controls['rating'].errors?.['min']">
+                  Rating must be at least 0.
+                </div>
+                <div *ngIf="f.controls['rating'].errors?.['max']">
+                  Rating cannot be more than 10.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+            </div>
+            <form [formGroup]="aFormGroup" class="recaptcha-form">
+              <ngx-recaptcha2 #captchaElem
+                [siteKey]="siteKey"
+                formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form>
+            <button id="abc" type="submit" class="form-control-submit-button">submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

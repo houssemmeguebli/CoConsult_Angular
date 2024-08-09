@@ -1,0 +1,106 @@
+<div class="ex-form-1 pt-5 pb-5">
+  <div>
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="add(f); formSubmitted = true;">
+            <div>
+              <input type="file" #imageInput style="display: none;" (change)="onImageSelected($event)">
+              <button id="imageInput" type="button" (click)="imageInput.click()">Add Image</button>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="trainingsname" name="trainingsname"
+                [(ngModel)]="training.trainingsname" required minlength="3" #trainingsname="ngModel">
+              <label for="trainingsname">Training Name</label>
+              <div *ngIf="(formSubmitted || trainingsname.touched) && trainingsname.invalid" class="text-danger">
+                <div *ngIf="trainingsname.errors?.['required']">
+                  Training Name is required.
+                </div>
+                <div *ngIf="trainingsname.errors?.['minlength']">
+                  Training Name must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="trainingsDescpriton" name="trainingsDescpriton"
+                [(ngModel)]="training.trainingsDescpriton" required minlength="3" #trainingsDescpriton="ngModel">
+              <label for="trainingsDescpriton">Training Description</label>
+              <div *ngIf="(formSubmitted || trainingsDescpriton.touched) && trainingsDescpriton.invalid" class="text-danger">
+                <div *ngIf="trainingsDescpriton.errors?.['required']">
+                  Training Description is required.
+                </div>
+                <div *ngIf="trainingsDescpriton.errors?.['minlength']">
+                  Training Description must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="trainingsduration" name="trainingsduration"
+                [(ngModel)]="training.trainingsduration" required minlength="3" #trainingsduration="ngModel">
+              <label for="trainingsduration">Training Duration</label>
+              <div *ngIf="(formSubmitted || trainingsduration.touched) && trainingsduration.invalid" class="text-danger">
+                <div *ngIf="trainingsduration.errors?.['required']">
+                  Training Duration is required.
+                </div>
+                <div *ngIf="trainingsduration.errors?.['minlength']">
+                  Training Duration must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="trainingsconsultantname" name="trainingsconsultantname"
+                [(ngModel)]="training.trainingsconsultantname" required minlength="3" #trainingsconsultantname="ngModel">
+              <label for="trainingsconsultantname">Consultant Name</label>
+              <div *ngIf="(formSubmitted || trainingsconsultantname.touched) && trainingsconsultantname.invalid" class="text-danger">
+                <div *ngIf="trainingsconsultantname.errors?.['required']">
+                  Consultant Name is required.
+                </div>
+                <div *ngIf="trainingsconsultantname.errors?.['minlength']">
+                  Consultant Name must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="date" class="form-control" id="trainingsDate" name="trainingsDate"
+                [(ngModel)]="training.trainingsDate" required minlength="3" #trainingsDate="ngModel">
+              <label for="trainingsDate">Training Date</label>
+              <div *ngIf="(formSubmitted || trainingsDate.touched) && trainingsDate.invalid" class="text-danger">
+                <div *ngIf="trainingsDate.errors?.['required']">
+                  Training Date is required.
+                </div>
+                <div *ngIf="trainingsDate.errors?.['minlength']">
+                  Training Date must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="number" class="form-control" id="positionNumber" name="positionNumber"
+                [(ngModel)]="training.positionNumber" required minlength="3" #positionNumber="ngModel">
+              <label for="positionNumber">Position Number</label>
+              <div *ngIf="(formSubmitted || positionNumber.touched) && positionNumber.invalid" class="text-danger">
+                <div *ngIf="positionNumber.errors?.['required']">
+                  Position Number is required.
+                </div>
+                <div *ngIf="positionNumber.errors?.['minlength']">
+                  Position Number must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <form [formGroup]="aFormGroup" class="recaptcha-form">
+              <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form>
+            <button id="abc" type="submit" class="form-control-submit-button">Add </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

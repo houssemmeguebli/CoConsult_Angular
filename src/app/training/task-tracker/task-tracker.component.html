@@ -1,0 +1,36 @@
+<!-- task-tracker.component.html -->
+<table>
+  <thead>
+    <tr>
+      <th>Consultant</th>
+      <th>Tâches en cours</th>
+      <th>Tâches terminées</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let consultant of consultants">
+      <td>{{ consultant.name }}</td>
+      <td *ngIf="consultant.tasksTotal !== undefined && consultant.tasksCompleted !== undefined">
+        {{ consultant.tasksTotal - consultant.tasksCompleted }}
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let task of consultant['tasks']" [class.completed]="task.completed">
+            {{ task.name }}
+            <input type="checkbox" [checked]="task.completed" (change)="taskCompleted(task, consultant)">
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br><br><br>
+
+<h2>Consultant Score</h2>
+
+<canvas id="generalScoreChart" ></canvas>
+<h2>Tasks Assigned by Consultant</h2>
+<div id="consultantCharts"></div>
+<h2>Completed tasks by Consultant</h2>
+
+<canvas id="completedTasksChart" width="400" height="400"></canvas>

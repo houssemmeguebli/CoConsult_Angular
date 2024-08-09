@@ -1,0 +1,54 @@
+<div class="new-users futuristic-section">
+    <h1 class="display-4 text-center mb-5" style="color: #057077;">Leaves</h1>
+    <br>
+    <br>
+    <h2 class="text-center" style="color: #ffffff; font-family: 'Roboto', sans-serif; font-size: 24px; background-color: #057077; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">Your total leave days in {{ yearToCalculate }} is {{ totalLeaveDaysInYear }} days</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped" style="border-collapse: separate; border-spacing: 0 10px;">
+            <thead style="background-color: #057077;">
+                <tr>
+                    <th style="color: white; font-size: 18px; padding: 15px;">Type</th>
+                    <th style="color: white; font-size: 18px; padding: 15px;">Start Date</th>
+                    <th style="color: white; font-size: 18px; padding: 15px;">End Date</th>
+                    <th style="color: white; font-size: 18px; padding: 15px;">Etat</th>
+                    <th style="color: white; font-size: 18px; padding: 15px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let leave of leaves" style="background-color: #f9f9f9;">
+                    <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ leave.typeLeave }}</td>
+                    <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ leave.startDateLeave | date }}</td>
+                    <td class="align-middle" style="font-size: 16px; padding: 15px;">{{ leave.endDateLeave | date }}</td>
+                    <td class="align-middle" style="font-size: 16px; padding: 15px;">
+                        <span *ngIf="leave.etat === 'UNSEEN'">
+                            <i class="fas fa-eye-slash" style="color: rgb(5, 119, 233);"> Unseen</i>
+                        </span>
+                        <span *ngIf="leave.etat === 'REJECTED'">
+                            <i class="fas fa-times-circle" style="color: rgb(177, 10, 10);"> Rejected</i>
+                        </span>
+                        <span *ngIf="leave.etat === 'APPROVED'">
+                            <i class="fas fa-check-circle" style="color: rgb(18, 149, 18);"> Approved</i>
+                        </span>
+                    </td>
+                    <td class="align-middle text-center" style="font-size: 16px; padding: 15px;">
+                        <button class="btn btn-outline-warning futuristic-btn3" style="font-size: 16px; padding: 10px;" [routerLink]="['/back/leaves/leaveupdate', leave.idLeave]">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger futuristic-btn4" style="font-size: 16px; padding: 10px;" (click)="deleteLeave(leave.idLeave)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <br>
+        <div>
+          </div>
+        <button class="btn btn-danger futuristic-btn" [disabled]="isButtonDisabled()" [routerLink]="['/back/leaveadd']">
+            <i class="fas fa-plus"></i> Add Leave
+        </button>
+        <div *ngIf="isButtonDisabled()" class="futuristic-message">You can't add more leaves</div>
+    </div>
+</div>

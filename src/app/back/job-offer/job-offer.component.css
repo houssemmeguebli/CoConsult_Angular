@@ -1,0 +1,91 @@
+:root {
+  --color-danger: #f25c05;
+  --color-success: #057077;
+}
+
+.table-responsive {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.table th, .table td {
+  border: none; /* Supprimer la bordure */
+}
+
+.btn {
+  border-radius: 8px; /* Agrandir le bouton */
+}
+
+
+
+
+.btn-primary {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.form-container {
+  border: 2px solid var(--color-success);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f8f9fa; /* Couleur de fond du formulaire */
+  margin: 20px auto; /* Centrage horizontal */
+  max-width: 600px;
+}
+
+.form-control {
+  border-color: var(--color-success);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(5, 112, 119, 0.25);
+  border-color: var(--color-success);
+}
+
+.form-group label {
+  font-weight: bold;
+  color: var(--color-success);
+}
+.btn-primary:hover {
+  background-color: transparent;
+  color: #057077; /* needs to stay here because of the color property of a tag */
+  text-decoration: none;
+}
+
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination button {
+  color: #057077;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination button.active {
+  background-color: #057077;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination button:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+
+.page-info {
+  flex-grow: 1;
+  text-align: center; /* Pour centrer le texte horizontalement */
+  font-size: 14px;
+  color: #057077;
+}

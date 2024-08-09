@@ -1,0 +1,37 @@
+<form [formGroup]="leaveForm" class="futuristic-form">
+  <h1 class="display-4 text-center mb-5" style="color: #057077;">Add Leave</h1>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for="typeLeave">Type:</label>
+    <select formControlName="typeLeave" class="form-control futuristic-input" required>
+      <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
+    </select>
+    <div *ngIf="leaveForm.get('typeLeave')?.invalid && leaveForm.get('typeLeave')?.touched" class="error-message">
+      Type is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="startDateLeave">Start date:</label>
+    <input type="date" formControlName="startDateLeave" class="form-control futuristic-input" required [min]="getTodayDate()">
+    <div *ngIf="leaveForm.get('startDateLeave')?.invalid && leaveForm.get('startDateLeave')?.touched" class="error-message">
+      Start date is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="endDateLeave">End date:</label>
+    <input type="date" formControlName="endDateLeave" class="form-control futuristic-input" required [min]="getTodayDate()">
+    <div *ngIf="leaveForm.get('endDateLeave')?.invalid && leaveForm.get('endDateLeave')?.touched" class="error-message">
+      End date is required.
+    </div>
+    <div *ngIf="leaveForm.get('endDateLeave')?.hasError('endDateBeforeStartDate')" class="error-message">
+      End date must be after start date.
+    </div>
+  </div>
+  
+  
+
+  <button type="submit" class="btn btn-primary futuristic-btn" (click)="save()">Submit</button>
+</form>

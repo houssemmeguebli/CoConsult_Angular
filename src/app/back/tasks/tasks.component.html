@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Tasks</h2>
+</div>
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Recipient</th>
+      <th>Email Recipient</th>
+      <th>Priority</th>
+      <th>Date Ajout</th>
+      <th>Status</th> <!-- Ajout de la colonne pour l'état -->
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.descriptionTasks }}</td>
+      <td>{{ task.recipientTasks }}</td>
+      <td>{{ task.emailRecipient }}</td>
+      <td>{{ task.priority }}</td>
+      <td>{{ task.dateAjout | date: 'short' }}</td>
+      <td>{{ task.status }}</td> <!-- Affichage de l'état de la tâche -->
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-update" [routerLink]="['/back/update-task', task?.idTasks]">
+            <span class="material-icons">edit</span> <!-- Icône de mise à jour -->
+          </button>
+          <button class="btn btn-delete" (click)="deleteTask(task.idTasks)">
+            <span class="material-icons">delete</span> <!-- Icône de suppression -->
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

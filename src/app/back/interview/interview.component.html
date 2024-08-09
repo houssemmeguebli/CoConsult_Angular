@@ -1,0 +1,46 @@
+
+<br><br><br><br><br>
+
+<div class="card border-0 shadow">
+  <div class="card-body">
+<h2 class="mt-4"style="color:#f25c05;" > Interview for : "{{name}}"  </h2>
+    <br>
+  <div class="table-responsive" *ngIf=interview>
+    <table class="table table-striped">
+      <thead class="table-success" style="background-color: #057077">
+      <tr>
+        <th style="background-color:  #057077 ;color: white">Applicant Email</th>
+        <th style="background-color:  #057077 ;color: white">Interview Description</th>
+        <th style="background-color:  #057077 ;color: white">Date Interview</th>
+        <th style="background-color:  #057077 ;color: white">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ interview.applicantEmail }}</td>
+        <td>{{ interview.interviewDescription }}</td>
+        <td >{{ interview.dateInterview | date: 'MM-dd-yyyy' }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" [routerLink]="['/back/interviewUpdate/', interview.idInterview]">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button class="btn btn-danger btn-sm me-2">
+            <i class="fas fa-trash-alt" (click)="deleteInterview(interview.idInterview)"></i>
+          </button>
+          <button class="btn btn-success btn-sm" (click)="sendEmail(interview)">
+            <i class="fas fa-envelope"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+<div *ngIf=!interview class="text-center my-5">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">No interview found</h4>
+    <p class="mb-0">Sorry, no interview is available for this job.</p>
+  </div>
+  <button class="btn btn-primary mt-3" [routerLink]="['/back/addInterview', idJob]">Add Interview</button>
+</div>
+  </div>
+</div>

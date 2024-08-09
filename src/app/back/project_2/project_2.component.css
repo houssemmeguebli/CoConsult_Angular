@@ -1,0 +1,45 @@
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: beige;
+  width: calc(33.33% - 20px); /* Pour afficher 3 cartes par ligne avec un espace de 20px entre elles */
+  box-sizing: border-box; /* Pour inclure le padding et la bordure dans la largeur définie */
+}
+
+.styling {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 72px;
+}
+
+@media screen and (max-width: 768px) {
+  .project-card {
+    width: calc(50% - 20px); /* Pour afficher 2 cartes par ligne sur les écrans de taille moyenne */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .project-card {
+    width: 100%; /* Pour afficher une seule carte par ligne sur les petits écrans */
+  }
+}
+
+
+.project-card h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.form-select{
+  height: 20px!important;
+}
+.project-card p {
+  margin: 0;
+}
+
+.project-card p strong {
+  font-weight: bold;
+}
+

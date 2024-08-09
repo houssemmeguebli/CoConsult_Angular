@@ -1,0 +1,34 @@
+<div class="container">
+  <br>
+  <br>
+  <h2>Archive des Contrats</h2>
+  <br>
+</div>
+
+<div class="table-container">
+  <table class="table">
+    <!-- Table Header -->
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Project Name</th>
+      <th>Email</th>
+      <th>Etat</th>
+    </tr>
+    </thead>
+    <!-- Table Body -->
+    <tbody>
+    <!-- Utilisation de ngFor pour parcourir les contrats archivés -->
+    <tr *ngFor="let contrat of contrats">
+      <td>{{ contrat.description }}</td>
+      <td>{{ contrat.startDate | date }}</td>
+      <td>{{ contrat.endDate | date }}</td>
+      <td>{{ contrat.projectName }}</td>
+      <td>{{ contrat.email }}</td>
+      <td>{{ contrat.etat }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

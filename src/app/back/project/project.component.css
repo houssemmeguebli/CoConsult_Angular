@@ -1,0 +1,52 @@
+.btn-primary:hover {
+    background-color: transparent;
+    color: #057077;
+    text-decoration: none;
+  }
+  
+  
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .table th, .table td {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .btn {
+    border-radius: 5px;
+  }
+  
+  
+  .btn-primary {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+  }
+  
+  .form-container {
+    border: 2px solid var(--color-success);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Couleur de fond du formulaire */
+    margin: 20px auto; /* Centrage horizontal */
+    max-width: 600px;
+  }
+  
+  .form-control {
+    border-color: var(--color-success);
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(5, 112, 119, 0.25);
+    border-color: var(--color-success);
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: var(--color-success);
+  }
+  .table-responsive {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  

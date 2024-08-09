@@ -1,0 +1,37 @@
+
+
+<br><br><br><br><br><br>
+
+
+<div class="card border-0 shadow">
+  <div class="card-body">
+
+<h1 style="font-size: 36px;">Claims Table</h1>
+
+<table class="reclamation-table" style="font-size: 20px;">
+  <thead>
+    <tr>
+      <th style="font-size: 22px;">Subject</th>
+      <th style="font-size: 22px;">Statut</th>
+      <th style="font-size: 22px;">Email</th>
+      <th style="font-size: 22px;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reclamation of reclamations" class="reclamation-row">
+      <td>{{ reclamation.subject }}</td>
+      <td>{{ reclamation.status }}</td>
+      <td>{{ reclamation.email }}</td>
+      <td>
+        <button mat-icon-button class="view-button" (click)="openDialog(reclamation)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        
+        <button mat-icon-button class="delete-button" (click)="onDelete(reclamation)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div></div>

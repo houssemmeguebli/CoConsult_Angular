@@ -1,0 +1,145 @@
+
+<br><br><br><br><br>
+
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <h2 style="color: #f25c05;">Job Applications for offer : "{{ jobOfferName }}"</h2>
+
+<br>
+<div class="job-applications-container">
+  <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search job applications..." (input)="searchJobApplications() " style="width: 250px">
+
+  <ng-container *ngIf="jobApplicationsforJobOffer && jobApplicationsforJobOffer.length > 0; else noApplications" >
+<br>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead >
+        <tr >
+          <th style="background-color:  #057077 ;color: white">Name</th>
+          <th style="background-color:  #057077 ;color: white">Email</th>
+          <th style="background-color:  #057077 ;color: white">Phone</th>
+          <th style="background-color: #057077; color: white; cursor: pointer;" (click)="sortJobOffersByExpirationDate()">
+            Application Date
+            <span *ngIf="sortBy === 'expirationDate' && sortOrder === 'asc'"   class="bi bi-arrow-up">&#8593;</span>
+            <span *ngIf="sortBy === 'expirationDate' && sortOrder === 'desc'"  class="bi bi-arrow-down">&#8595;</span>
+          </th>
+          <th style="background-color:  #057077 ;color: white">Resume</th>
+          <th style="background-color:  #057077 ;color: white">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let application of getPageJobAPP()">
+          <td>{{ application.nameApplicant }}</td>
+          <td>{{ application.emailApplicant }}</td>
+          <td>{{ application.phoneApplicant }}</td>
+          <td style="text-align: center">{{ application.dateApplication | date:"MM-dd-yyyy"}}</td>
+          <td style="text-align: center;">
+            <a href="{{ application.resumePath }}" target="_blank" style="color: #057077; font-weight: bold;">View CV</a>
+          </td>
+
+          <td>
+
+            <button class="btn btn-primary btn-sm me-2 " [routerLink]="['/back/interview/',application.idJobApp]">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger btn-sm me-2" (click)="deletJobApplication(application.idJobApp)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="btn btn-primary btn-sm me-2" (click)="searchResume(application.resumePath,application.nameApplicant)">
+              <i class="fas fa-search"></i>
+            </button>
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination d-flex justify-content-end">
+        <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
+          <span class="pagination-icon">&laquo;</span>
+        </button>
+        <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+          <span class="pagination-icon">&raquo;</span>
+        </button>
+      </div>
+
+    </div>
+  </ng-container>
+  <ng-template #noApplications>
+    <div class="text-center my-5">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">No job applications found</h4>
+        <p class="mb-0">Sorry, no job applications is available for this offer.</p>
+    </div>
+    </div>
+  </ng-template>
+</div>
+<!-- job-application.component.html -->
+<!-- Formulaire de recherche -->
+<div *ngIf="showSearch" class="search-container">
+  <div class="search-header">
+    <h3>Search in Resume for <span>{{ applicationName }}</span></h3>
+  </div>
+  <form [formGroup]="searchForm" (ngSubmit)="searchInPDF()">
+    <div class="form-group">
+      <label for="searchTerms">Enter Search keywords (comma-separated)</label>
+      <input type="text" class="form-control" id="searchTerms" formControlName="searchTerms">
+    </div>
+    <button type="submit" class="btn btn-primary me-2">Search</button>
+    <button class="btn btn-primary close-button" (click)="hideSearch()">Close</button>
+
+  </form>
+
+  <!-- Div pour afficher le résultat de la recherche -->
+  <div *ngIf="searchResult" class="search-result">
+    <h4 class="result-title">Search Result :</h4>
+    <h6 class="found-terms">The following terms were found in the CV of <span>{{ applicationName }}:</span></h6>
+    <p class="found-text">{{ searchResult }}</p>
+  </div>
+</div>
+  </div>
+
+</div>
+<!-- pdf-search.component.html -->
+<br><br>
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <h2 class="mb-4">Advanced Job Application Search</h2>
+    <p class="job-application-title">Search for key terms or phrases from resumes (comma-separated)</p>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control me-2" placeholder="Enter search terms..." [(ngModel)]="searchTermm" id="searchInput" style="width: 250px">
+          <button class="btn btn-primary fas fa-search" (click)="searchPDFs(jobOfferId)"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="jobApplications && jobApplications.length > 0">
+      <div class="col-md-12">
+        <h3 class="search-results-title">Search Results:</h3>
+      </div>
+      <div class="col-md-12">
+        <ul class="job-application-list">
+          <li class="job-application-item" *ngFor="let application of jobApplications">
+            <div class="job-application-info">
+              <h5 class="job-application-title">Applicant's Name: {{ application.nameApplicant }}</h5>
+              <p class="job-application-detail">Email Address: {{ application.emailApplicant }}</p>
+              <p class="job-application-detail">Phone Number: {{ application.phoneApplicant }}</p>
+              <p class="job-application-detail">Application Date: {{ application.dateApplication | date: 'dd-MM-yyyy' }}</p>
+              <a [href]="application.resumePath" class="btn btn-primary btn-sm" target="_blank">View Resume</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="jobApplications && jobApplications.length === 0 && searchButtonClicked">
+      <div class="col-md-12">
+        <p class="alert alert-info">No results found for the entered search terms. Please try different keywords.</p>
+      </div>
+    </div>
+  </div>
+</div>
+

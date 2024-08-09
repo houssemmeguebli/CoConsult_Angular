@@ -1,0 +1,5 @@
+.invalid-feedback {
+    color: red;
+    font-size: 0.875rem; /* Taille de la police */
+    margin-top: 0.25rem; /* Marge en haut */
+}

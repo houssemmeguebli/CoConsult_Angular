@@ -1,0 +1,55 @@
+/* Style pour le centre de la page */
+.center {
+  text-align: center;
+}
+
+/* Style pour le formulaire */
+.form-container {
+  max-width: 600px; /* Augmenter la largeur du formulaire */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style pour les groupes de formulaires */
+.form-group {
+  margin-bottom: 30px; /* Augmenter l'espacement entre les groupes de formulaires */
+}
+
+/* Style pour les champs de saisie */
+.form-control {
+  font-size: 16px; /* Augmenter la taille de la police */
+  padding: 10px; /* Augmenter l'espacement à l'intérieur des champs */
+}
+
+/* Style pour les alertes d'erreur */
+.alert {
+  margin-top: 10px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px; /* Augmenter l'espacement des alertes */
+  border-radius: 5px;
+}
+
+.alert-danger p {
+  margin-bottom: 0;
+}
+
+/* Style pour le bouton */
+.btn-primary {
+  background-color: #007bff; /* Couleur bleue */
+  color: #fff; /* Texte en blanc */
+  border: none; /* Supprimer la bordure */
+  padding: 10px 20px; /* Augmenter l'espacement du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointer */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+}

@@ -1,0 +1,84 @@
+<div class="ex-form-1 pt-5 pb-5">
+  <div>
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <div class="text-box mt-5 mb-5">
+          <form #f="ngForm" (ngSubmit)="add(f); formSubmitted = true;">
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="jobName" name="jobName" [(ngModel)]="task.jobName" required minlength="3" #jobName="ngModel">
+              <label for="jobName">Job Name</label>
+              <div *ngIf="(formSubmitted || jobName.touched) && jobName.invalid" class="text-danger">
+                <div *ngIf="jobName.errors?.['required']">
+                  Job Name is required.
+                </div>
+                <div *ngIf="jobName.errors?.['minlength']">
+                  Job Name must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="activityManagementDescpriton" name="activityManagementDescpriton" [(ngModel)]="task.activityManagementDescpriton" required minlength="3" #activityManagementDescpriton="ngModel">
+              <label for="activityManagementDescpriton">Activity Management Description</label>
+              <div *ngIf="(formSubmitted || activityManagementDescpriton.touched) && activityManagementDescpriton.invalid" class="text-danger">
+                <div *ngIf="activityManagementDescpriton.errors?.['required']">
+                  Activity Management Description is required.
+                </div>
+                <div *ngIf="activityManagementDescpriton.errors?.['minlength']">
+                  Activity Management Description must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="activityManagementpriority" name="activityManagementpriority" [(ngModel)]="task.activityManagementpriority" required minlength="3" #activityManagementpriority="ngModel">
+              <label for="activityManagementpriority">Activity Management Priority</label>
+              <div *ngIf="(formSubmitted || activityManagementpriority.touched) && activityManagementpriority.invalid" class="text-danger">
+                <div *ngIf="activityManagementpriority.errors?.['required']">
+                  Activity Management Priority is required.
+                </div>
+                <div *ngIf="activityManagementpriority.errors?.['minlength']">
+                  Activity Management Priority must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="text" class="form-control" id="activityManagementstatus" name="activityManagementstatus" [(ngModel)]="task.activityManagementstatus" required minlength="3" #activityManagementstatus="ngModel">
+              <label for="activityManagementstatus">Activity Management Status</label>
+              <div *ngIf="(formSubmitted || activityManagementstatus.touched) && activityManagementstatus.invalid" class="text-danger">
+                <div *ngIf="activityManagementstatus.errors?.['required']">
+                  Activity Management Status is required.
+                </div>
+                <div *ngIf="activityManagementstatus.errors?.['minlength']">
+                  Activity Management Status must be at least 3 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="date" class="form-control" id="jobExpirationDate" name="jobExpirationDate" [(ngModel)]="task.jobExpirationDate" required>
+              <label for="jobExpirationDate">Job Expiration Date</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+              <input type="number" class="form-control" id="numberofhours" name="numberofhours" [(ngModel)]="task.numberofhours" required>
+              <label for="numberofhours">Number of Hours</label>
+            </div>
+
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck">I agree with the site's stated <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+            </div>
+
+            <form [formGroup]="aFormGroup" class="recaptcha-form">
+              <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+              </ngx-recaptcha2>
+            </form>
+            <button type="submit" class="form-control-submit-button">Add Task</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

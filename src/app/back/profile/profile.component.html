@@ -1,0 +1,36 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Profile</h1>
+  </div><!-- End Page Title -->
+
+  <section class="section profile">
+    
+    <div class="row">
+      <div class="col-xl-4">
+        <div class="card">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+            <img src="assets/back/images/Ala.jpg" alt="Profile" class="rounded-circle">
+            <div *ngIf="user">
+              <h2>{{username }}'s Profile</h2>
+              <h3>software engineering student</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8">
+        <!-- Informations du profil -->
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">{{ username}}'s Profile</h2>
+            <p><strong>Email:</strong> {{useremail }}</p>
+            <p><strong>Role:</strong> {{ userrole}}</p>
+            <div class="d-flex flex-wrap">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

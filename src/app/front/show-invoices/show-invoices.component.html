@@ -1,0 +1,35 @@
+<!-- invoices-details.component.html -->
+
+<!-- invoices-details.component.html -->
+<br>
+<br>
+<div class="invoice-details-container">
+  <h2 class="center">Détails de la facture</h2>
+  <div class="invoice-details">
+    <br>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th scope="row">Nom du destinataire :</th>
+        <td>{{ invoice?.nameDestinaire }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Email du destinataire :</th>
+        <td>{{ invoice?.emailDestinaire }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Date de la facture :</th>
+        <td>{{ invoice?.dateInvoice | date }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Montant :</th>
+        <td>{{ invoice?.amount }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>

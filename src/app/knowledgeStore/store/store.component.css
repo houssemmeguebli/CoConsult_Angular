@@ -1,0 +1,72 @@
+.upload-section {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-upload {
+  background-color: white;
+  color: #057077;
+  border-width: 1px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-color: #057077;
+  border-style: groove;
+}
+
+#search {
+  height: 40px;
+  border-style: groove;
+  border-radius: 10px;
+  text-align: center;
+  border-color: #057077;
+  border-width: 1px;
+}
+
+.btn-upload:hover {
+  background-color:#ccc ;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  max-width: 250px;
+  height: 80px; /* Définissez la hauteur souhaitée pour toutes les cartes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ajoutez une ombre à la carte */
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-text {
+  color: #666;
+}
+
+.file-image {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.file-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.file-link:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  margin: 20px;
+}
+
+.file-image {
+  width: 100%;
+  height: 200px; /* Choisissez la hauteur souhaitée pour toutes les images */
+  object-fit: cover; /* Pour que l'image remplisse complètement le conteneur tout en conservant son ratio d'aspect */
+}

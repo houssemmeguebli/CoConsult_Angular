@@ -1,0 +1,40 @@
+<div class="upload-section">
+  <div> <input type="file" (change)="onFileSelected($event)">
+   <button class="btn-upload" (click)="uploadFile()">Add Knowledge</button></div>
+ </div>
+
+<div >
+  <div class="row">
+    <!-- Section pour les images -->
+    <div class="col-md-12">
+      <h2>Images</h2>
+      <div class="row" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 2px;">
+        <div *ngFor="let file of imageFiles" style="height: 100%;">
+          <div class="card mb-4" style="height: 100%;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ file.fileName }}</h5>
+              <p class="card-text flex-grow-1">Date ajoutée : {{ file.uploadDateTime }}</p>
+              <img class="file-image" [src]="'http://localhost:8081/Pi/knowledge/files/' + file.fileName" (click)="openFile('http://localhost:8081/Pi/knowledge/files/' + file.fileName)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section pour les autres fichiers -->
+    <div class="col-md-12">
+      <h2>Fichiers</h2>
+      <div class="row" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 2px;">
+        <div *ngFor="let file of otherFiles" style="height: 100%;">
+          <div class="card mb-4" style="height: 100%;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ file.fileName }}</h5>
+              <p class="card-text flex-grow-1">Date ajoutée : {{ file.uploadDateTime }}</p>
+              <a class="file-link" [href]="'http://localhost:8081/Pi/knowledge/files/' + file.fileName" target="_blank" rel="noopener noreferrer">{{ file.fileName }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
